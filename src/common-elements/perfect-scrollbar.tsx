@@ -17,6 +17,7 @@ const PerfectScrollbarConstructor =
 const PSStyling = createGlobalStyle`${psStyles && psStyles.toString()}`;
 
 const StyledScrollWrapper = styled.div`
+  font-size: ${props => props.theme.menu.fontSize};
   position: relative;
 `;
 

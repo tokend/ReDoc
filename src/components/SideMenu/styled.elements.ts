@@ -94,11 +94,12 @@ export const MenuItemLi = styled.li<{ depth: number }>`
 export const menuItemDepth = {
   0: css`
     opacity: 0.7;
+    letter-spacing: 0.05em;
     text-transform: ${({ theme }) => theme.menu.groupItems.textTransform};
-    font-size: 0.8em;
+    font-size: 0.7em;
     padding-bottom: 0;
     cursor: default;
-    color: ${props => props.theme.menu.textColor};
+    color: ${props => props.theme.menu.groupLabelColor};
   `,
   1: css`
     font-size: 0.929em;

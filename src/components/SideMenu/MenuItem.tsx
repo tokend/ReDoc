@@ -42,6 +42,10 @@ export class MenuItem extends React.Component<MenuItemProps> {
 
   render() {
     const { item, withoutChildren } = this.props;
+
+    console.log(item);
+    console.log(withoutChildren);
+
     return (
       <MenuItemLi
         onClick={this.activate}
@@ -49,21 +53,26 @@ export class MenuItem extends React.Component<MenuItemProps> {
         ref={this.saveRef}
         data-item-id={item.id}
       >
-        {item.type === 'operation' ? (
-          <OperationMenuItemContent {...this.props} item={item as OperationModel} />
-        ) : (
-          <MenuItemLabel depth={item.depth} active={item.active} type={item.type}>
-            <MenuItemTitle title={item.name}>
-              {item.name}
-              {this.props.children}
-            </MenuItemTitle>
-            {(item.depth > 0 &&
-              item.items.length > 0 && (
-                <ShelfIcon float={'right'} direction={item.expanded ? 'down' : 'right'} />
-              )) ||
-              null}
-          </MenuItemLabel>
-        )}
+        {(() => {
+          switch (item.type) {
+            case 'operation':
+              return <OperationMenuItemContent {...this.props} item={item as OperationModel} />;
+            default:
+              return (
+                  <MenuItemLabel depth={item.depth} active={item.active} type={item.type}>
+                    <MenuItemTitle title={item.name}>
+                      {item.name}
+                      {this.props.children}
+                    </MenuItemTitle>
+                    {
+                      (item.depth > 0 && item.items.length > 0 && (
+                        <ShelfIcon float={'right'} direction={item.expanded ? 'down' : 'right'} />
+                      )) || null
+                    }
+                </MenuItemLabel>
+              );
+          }
+        })()}
         {!withoutChildren &&
           item.items &&
           item.items.length > 0 && (

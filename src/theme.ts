@@ -1,5 +1,15 @@
 import { darken, desaturate, lighten, readableColor, transparentize } from 'polished';
 
+const orange: string = '#f2a100';
+const green: string = '#33A494';
+const blue: string = '#3a4180';
+// const lightBlue: string = '#0ea7ba';
+const red: string = '#ef5350';
+
+const fontFamily =
+  ['Circular', 'Noto Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+  .join(',');
+
 const defaultTheme: ThemeInterface = {
   spacing: {
     unit: 5,
@@ -12,30 +22,36 @@ const defaultTheme: ThemeInterface = {
     large: '105rem',
   },
   colors: {
-    tonalOffset: 0.3,
+    tonalOffset: 0.2,
     primary: {
-      main: '#32329f',
+      main: '#3a4180',
       light: ({ colors }) => lighten(colors.tonalOffset, colors.primary.main),
       dark: ({ colors }) => darken(colors.tonalOffset, colors.primary.main),
       contrastText: ({ colors }) => readableColor(colors.primary.main),
     },
     success: {
-      main: '#00aa13',
+      main: green,
       light: ({ colors }) => lighten(colors.tonalOffset, colors.success.main),
       dark: ({ colors }) => darken(colors.tonalOffset, colors.success.main),
       contrastText: ({ colors }) => readableColor(colors.success.main),
     },
     warning: {
-      main: '#d4ad03',
+      main: orange,
       light: ({ colors }) => lighten(colors.tonalOffset, colors.warning.main),
       dark: ({ colors }) => darken(colors.tonalOffset, colors.warning.main),
       contrastText: '#ffffff',
     },
     error: {
-      main: '#e53935',
+      main: red,
       light: ({ colors }) => lighten(colors.tonalOffset, colors.error.main),
       dark: ({ colors }) => darken(colors.tonalOffset, colors.error.main),
       contrastText: ({ colors }) => readableColor(colors.error.main),
+    },
+    info: {
+      main: blue,
+      light: ({ colors }) => lighten(colors.tonalOffset, colors.info.main),
+      dark: ({ colors }) => darken(colors.tonalOffset, colors.info.main),
+      contrastText: ({ colors }) => readableColor(colors.info.main),
     },
     text: {
       primary: '#333333',
@@ -64,12 +80,12 @@ const defaultTheme: ThemeInterface = {
       },
     },
     http: {
-      get: '#6bbd5b',
-      post: '#248fb2',
-      put: '#9b708b',
-      options: '#d3ca12',
-      patch: '#e09d43',
-      delete: '#e27a7a',
+      get: ({ colors }) => colors.success.main,
+      post: ({ colors }) => colors.info.main,
+      put: ({ colors }) => colors.info.dark,
+      options: ({ colors }) => colors.warning.light,
+      patch: ({ colors }) => colors.info.light,
+      delete: ({ colors }) => colors.error.light,
       basic: '#999',
       link: '#31bbb6',
       head: '#c167e4',
@@ -99,11 +115,11 @@ const defaultTheme: ThemeInterface = {
     fontWeightRegular: '400',
     fontWeightBold: '600',
     fontWeightLight: '300',
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily,
     smoothing: 'antialiased',
     optimizeSpeed: true,
     headings: {
-      fontFamily: 'Montserrat, sans-serif',
+      fontFamily,
       fontWeight: '400',
     },
     code: {
@@ -122,9 +138,11 @@ const defaultTheme: ThemeInterface = {
     },
   },
   menu: {
-    width: '260px',
-    backgroundColor: '#fafafa',
-    textColor: '#333333',
+    width: '280px',
+    backgroundColor: '#f5f6f9',
+    fontSize: '16px',
+    textColor: ({ colors }) => colors.primary.main,
+    groupLabelColor: ({ colors }) => colors.primary.light,
     groupItems: {
       textTransform: 'uppercase',
     },
@@ -139,6 +157,11 @@ const defaultTheme: ThemeInterface = {
   logo: {
     maxHeight: ({ menu }) => menu.width,
     maxWidth: ({ menu }) => menu.width,
+    paddingTop: '20px',
+    paddingBottom: '30px',
+    paddingLeft: '20px',
+    paddingRight: '20px',
+    isCentered: false,
   },
   rightPanel: {
     backgroundColor: '#263238',
@@ -147,6 +170,7 @@ const defaultTheme: ThemeInterface = {
   },
   codeSample: {
     backgroundColor: ({ rightPanel }) => darken(0.1, rightPanel.backgroundColor),
+    textColor: '#fff',
   },
 };
 
@@ -223,6 +247,7 @@ export interface ResolvedThemeInterface {
     success: ColorSetting;
     warning: ColorSetting;
     error: ColorSetting;
+    info: ColorSetting;
     border: {
       light: string;
       dark: string;
@@ -292,7 +317,9 @@ export interface ResolvedThemeInterface {
   menu: {
     width: string;
     backgroundColor: string;
+    fontSize: string;
     textColor: string;
+    groupLabelColor: string;
     groupItems: {
       textTransform: string;
     };
@@ -307,6 +334,11 @@ export interface ResolvedThemeInterface {
   logo: {
     maxHeight: string;
     maxWidth: string;
+    paddingTop: string;
+    paddingBottom: string;
+    paddingLeft: string;
+    paddingRight: string;
+    isCentered: boolean;
   };
   rightPanel: {
     backgroundColor: string;
@@ -315,6 +347,7 @@ export interface ResolvedThemeInterface {
   };
   codeSample: {
     backgroundColor: string;
+    textColor: string;
   };
 
   extensionsHook?: (name: string, props: any) => string;

@@ -11,7 +11,7 @@ import { dirname, join, resolve } from 'path';
 import * as zlib from 'zlib';
 
 // @ts-ignore
-import { createStore, loadAndBundleSpec, Redoc } from 'redoc';
+import { createStore, loadAndBundleSpec, Redoc } from '@tokend/redoc';
 
 import {watch} from 'chokidar';
 import { createReadStream, existsSync, readFileSync, ReadStream, writeFileSync } from 'fs';
@@ -30,7 +30,7 @@ interface Options {
   redocOptions?: any;
 }
 
-const BUNDLES_DIR = dirname(require.resolve('redoc'));
+const BUNDLES_DIR = dirname(require.resolve('@tokend/redoc'));
 
 /* tslint:disable-next-line */
 YargsParser.command(

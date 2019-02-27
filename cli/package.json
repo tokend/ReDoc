@@ -1,7 +1,7 @@
 {
-  "name": "redoc-cli",
+  "name": "@tokend/redoc-cli",
   "version": "0.7.1",
-  "description": "ReDoc's Command Line Interface",
+  "description": "Custom fork of the ReDoc's Command Line Interface (https://github.com/Rebilly/ReDoc)",
   "main": "index.js",
   "bin": "index.js",
   "repository": "https://github.com/Rebilly/ReDoc",

@@ -1,7 +1,7 @@
 {
-  "name": "redoc",
-  "version": "2.0.0-rc.2",
-  "description": "ReDoc",
+  "name": "@tokend/redoc",
+  "version": "2.0.0",
+  "description": "Customized fork of ReDoc (github.com/Rebilly/ReDoc)",
   "repository": {
     "type": "git",
     "url": "git://github.com/Rebilly/ReDoc"

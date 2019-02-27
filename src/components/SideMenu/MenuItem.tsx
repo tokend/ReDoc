@@ -43,9 +43,6 @@ export class MenuItem extends React.Component<MenuItemProps> {
   render() {
     const { item, withoutChildren } = this.props;
 
-    console.log(item);
-    console.log(withoutChildren);
-
     return (
       <MenuItemLi
         onClick={this.activate}

@@ -1832,9 +1832,10 @@ mark.js@^8.11.1:
   version "8.11.1"
   resolved "https://registry.yarnpkg.com/mark.js/-/mark.js-8.11.1.tgz#180f1f9ebef8b0e638e4166ad52db879beb2ffc5"
 
-"marked@https://github.com/markedjs/marked#fb48827":
-  version "0.5.1"
-  resolved "https://github.com/markedjs/marked#fb48827236ed3a43e611d2adb3c070ca3f55ed8e"
+marked@^0.6.0:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-0.6.1.tgz#a63addde477bca9613028de4b2bc3629e53a0562"
+  integrity sha512-+H0L3ibcWhAZE02SKMqmvYsErLo4EAVJxu5h3bHBBDvvjeWXtl92rGUSBYHL2++5Y+RSNgl8dYOAXcYe7lp1fA==
 
 mem@^4.0.0:
   version "4.0.0"
@@ -2555,9 +2556,10 @@ readdirp@^2.0.0:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
-redoc@^2.0.0-alpha.41:
-  version "2.0.0-alpha.41"
-  resolved "https://registry.yarnpkg.com/redoc/-/redoc-2.0.0-alpha.41.tgz#55ebab877d02e1ea241a8cafd61631623b81a3f2"
+redoc@^2.0.0-rc.1:
+  version "2.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/redoc/-/redoc-2.0.0-rc.2.tgz#67beafa660cf481107df3df466e172c6226777d2"
+  integrity sha512-KsacFfNeBSBwGbWD8zzckYZ9V5TQB33xCl0I2pNQrWEEyhOZyfpp4Sf7qmOVYxj8DzdqHTP/HJiCtH84o68+mg==
   dependencies:
     classnames "^2.2.6"
     decko "^1.2.0"
@@ -2567,7 +2569,7 @@ redoc@^2.0.0-alpha.41:
     json-schema-ref-parser "^6.0.1"
     lunr "^2.3.2"
     mark.js "^8.11.1"
-    marked "https://github.com/markedjs/marked#fb48827"
+    marked "^0.6.0"
     memoize-one "^4.0.0"
     mobx-react "^5.2.5"
     openapi-sampler "1.0.0-beta.14"

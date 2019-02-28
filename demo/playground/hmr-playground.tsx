@@ -24,6 +24,7 @@ const specUrl = swagger ? 'swagger.yaml' : big ? 'big-openapi.json' : 'openapi.y
 let store;
 const options: RedocRawOptions = {
   itemTypesInsteadOfOperations: true,
+  rootParamNameAsGroupHeader: true,
   hideResponseSamples: true,
   nativeScrollbars: false,
   hidePath: true,

@@ -314,6 +314,10 @@ export const shortenItemType = type => {
       return 'op';
     case 'entry':
       return 'entry';
+    case 'transaction':
+      return 'tr';
+    default:
+      return 'other';
   }
 };
 

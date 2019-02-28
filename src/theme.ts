@@ -80,8 +80,9 @@ const defaultTheme: ThemeInterface = {
       },
     },
     itemType: {
-      operation: blue,
       entry: lightBlue,
+      operation: blue,
+      transaction: green,
     },
     http: {
       get: ({ colors }) => colors.success.main,
@@ -267,6 +268,7 @@ export interface ResolvedThemeInterface {
       info: HTTPResponseColos;
     };
     itemType: {
+      transaction: string;
       operation: string;
       entry: string;
     },

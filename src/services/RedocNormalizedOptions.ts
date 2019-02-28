@@ -13,6 +13,7 @@ export interface RedocRawOptions {
   itemTypesInsteadOfOperations?: boolean;
   rootParamNameAsGroupHeader?: boolean;
   flattenResponseView?: boolean;
+  codeSamplesInsteadOfRequestSamples?: boolean;
   cropArmPrefixes?: boolean;
   expandResponses?: string | 'all';
   requiredPropsFirst?: boolean | string;
@@ -121,6 +122,7 @@ export class RedocNormalizedOptions {
   rootParamNameAsGroupHeader: boolean;
   flattenResponseView: boolean;
   cropArmPrefixes: boolean;
+  codeSamplesInsteadOfRequestSamples: boolean;
   expandResponses: { [code: string]: boolean } | 'all';
   requiredPropsFirst: boolean;
   sortPropsAlphabetically: boolean;
@@ -156,6 +158,7 @@ export class RedocNormalizedOptions {
     this.rootParamNameAsGroupHeader = argValueToBoolean(raw.rootParamNameAsGroupHeader);
     this.flattenResponseView = argValueToBoolean(raw.flattenResponseView);
     this.cropArmPrefixes = argValueToBoolean(raw.cropArmPrefixes);
+    this.codeSamplesInsteadOfRequestSamples = argValueToBoolean(raw.codeSamplesInsteadOfRequestSamples);
     this.sortPropsAlphabetically = argValueToBoolean(raw.sortPropsAlphabetically);
     this.noAutoAuth = argValueToBoolean(raw.noAutoAuth);
     this.nativeScrollbars = argValueToBoolean(raw.nativeScrollbars);

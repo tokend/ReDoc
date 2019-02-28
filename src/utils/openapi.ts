@@ -308,6 +308,15 @@ export const shortenHTTPVerb = verb =>
     options: 'opts',
   }[verb] || verb);
 
+export const shortenItemType = type => {
+  switch (type) {
+    case 'operation':
+      return 'op';
+    case 'entry':
+      return 'entry';
+  }
+};
+
 export function isRedocExtension(key: string): boolean {
   const redocExtensions = {
     'x-circular-ref': true,

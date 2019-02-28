@@ -4,6 +4,36 @@ import { darken } from 'polished';
 import { deprecatedCss, ShelfIcon } from '../../common-elements';
 import styled, { css } from '../../styled-components';
 
+export const ItemTypeBadge = styled.span.attrs((props: { type: string }) => ({
+  className: `item-type ${props.type}`,
+}))<{ type: string }>`
+  width: 32px;
+  display: inline-block;
+  height: ${props => props.theme.typography.code.fontSize};
+  line-height: ${props => props.theme.typography.code.fontSize};
+  background-color: #333;
+  border-radius: 3px;
+  background-repeat: no-repeat;
+  background-position: 6px 4px;
+  font-size: 7px;
+  font-family: Verdana; // web-safe
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  vertical-align: middle;
+  margin-right: 6px;
+  margin-top: 2px;
+
+  &.operation {
+    background-color: ${props => props.theme.colors.itemType.operation};
+  }
+
+  &.entry {
+    background-color: ${props => props.theme.colors.itemType.entry};
+  }
+`;
+
 export const OperationBadge = styled.span.attrs((props: { type: string }) => ({
   className: `operation-type ${props.type}`,
 }))<{ type: string }>`

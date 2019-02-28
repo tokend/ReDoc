@@ -3,7 +3,7 @@ import { darken, desaturate, lighten, readableColor, transparentize } from 'poli
 const orange: string = '#f2a100';
 const green: string = '#33A494';
 const blue: string = '#3a4180';
-// const lightBlue: string = '#0ea7ba';
+const lightBlue: string = '#0ea7ba';
 const red: string = '#ef5350';
 
 const fontFamily =
@@ -78,6 +78,10 @@ const defaultTheme: ThemeInterface = {
         color: '#87ceeb',
         backgroundColor: ({ colors }) => transparentize(0.9, colors.responses.info.color),
       },
+    },
+    itemType: {
+      operation: blue,
+      entry: lightBlue,
     },
     http: {
       get: ({ colors }) => colors.success.main,
@@ -262,6 +266,10 @@ export interface ResolvedThemeInterface {
       redirect: HTTPResponseColos;
       info: HTTPResponseColos;
     };
+    itemType: {
+      operation: string;
+      entry: string;
+    },
     http: {
       get: string;
       post: string;

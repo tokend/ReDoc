@@ -152,11 +152,16 @@ const defaultTheme: ThemeInterface = {
       textTransform: 'uppercase',
     },
     level1Items: {
-      textTransform: 'none',
+      textTransform: 'uppercase',
     },
     arrow: {
       size: '1.5em',
       color: theme => theme.menu.textColor,
+    },
+  },
+  params: {
+    underlinedHeader: {
+      textTransform: 'uppercase',
     },
   },
   logo: {
@@ -340,6 +345,11 @@ export interface ResolvedThemeInterface {
       size: string;
       color: string;
     };
+  };
+  params: {
+    underlinedHeader: {
+      textTransform: string;
+    },
   };
   logo: {
     maxHeight: string;

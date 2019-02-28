@@ -52,7 +52,7 @@ export class Operation extends React.Component<OperationProps> {
                 <ShareLink to={operation.id} />
                 {summary} {deprecated && <Badge type="warning"> Deprecated </Badge>}
               </H2>
-              {options.pathInMiddlePanel && <Endpoint operation={operation} inverted={true} />}
+              {!options.hidePath && options.pathInMiddlePanel && <Endpoint operation={operation} inverted={true} />}
               {hasDescription && (
                 <Description>
                   {description !== undefined && <Markdown source={description} />}
@@ -65,9 +65,9 @@ export class Operation extends React.Component<OperationProps> {
               <ResponsesList responses={operation.responses} />
             </MiddlePanel>
             <DarkRightPanel>
-              {!options.pathInMiddlePanel && <Endpoint operation={operation} />}
+              {!options.hidePath && !options.pathInMiddlePanel && <Endpoint operation={operation} />}
               <RequestSamples operation={operation} />
-              <ResponseSamples operation={operation} />
+              {!options.hideResponseSamples && <ResponseSamples operation={operation} />}
             </DarkRightPanel>
           </OperationRow>
         )}

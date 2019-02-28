@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { UnderlinedHeader } from '../../common-elements';
+import { InnerPropertiesWrap, PropertyCellWithInner, UnderlinedHeader } from '../../common-elements';
 import { PropertiesTable } from '../../common-elements/fields-layout';
 
 import { FieldModel } from '../../services/models';
@@ -9,6 +9,7 @@ import { Field } from '../Fields/Field';
 import { mapWithLast } from '../../utils';
 
 import { OptionsContext } from '../OptionsProvider';
+import { Schema } from '../Schema';
 
 export interface ParametersGroupProps {
   place: string;
@@ -60,6 +61,13 @@ export class ParametersGroup extends React.PureComponent<ParametersGroupProps, a
                   <Aux>
                     <UnderlinedHeader>{rootField.schema.title}</UnderlinedHeader>
                     <p>{rootField.schema.description}</p>
+                    <tr key={rootField.name + 'inner'}>
+                      <PropertyCellWithInner colSpan={2}>
+                        <InnerPropertiesWrap>
+                          <Schema schema={rootField.schema} />
+                        </InnerPropertiesWrap>
+                      </PropertyCellWithInner>
+                    </tr>
                     <PropertiesTable>
                       <tbody>
                       {

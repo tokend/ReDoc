@@ -10,7 +10,7 @@ export const Tabs = styled(ReactTabs)`
     list-style: none;
     padding: 0;
     margin: 0;
-    margin: 0 -5px;
+    margin: 0 -5px 10px;
 
     > li {
       padding: 5px 10px;

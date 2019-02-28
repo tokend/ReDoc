@@ -37,10 +37,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.3.tgz#6310a047f12d21a1036fb031317219892440416f"
   integrity sha512-4zAPlpDEh2VwXswwr/t8xGNDGg8RQiPxtxZ3qQEXyQsBV39ptTdESCjuBvGze1nLMVrxmTIKmnO/nAV8Tqjjzg==
 
-"@tokend/redoc@2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@tokend/redoc/-/redoc-2.0.2.tgz#b6a75a2d8e291a47fd072245312096164d23e469"
-  integrity sha512-NBMLmfAeIMf1PnMOGDUrIXyOcdkoz2ng6SvlPTiV3RJrmPbdIhJG+5sSe2sBtNeu3GJkcTf1932uvWrhtHHXMw==
+"@tokend/redoc@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@tokend/redoc/-/redoc-2.1.0.tgz#2f215d15acae98ec06523b87ca2d0b9f1c540623"
+  integrity sha512-VLJGY11sf7++XdBWoqYAtHpCWTy1sv6GeppFgMlAw4vurff1j5h0h1jVjlacVL9h5dAPKyVatzpopdQXtWehpw==
   dependencies:
     classnames "^2.2.6"
     decko "^1.2.0"

@@ -27,6 +27,7 @@ const options: RedocRawOptions = {
   rootParamNameAsGroupHeader: true,
   hideResponseSamples: true,
   flattenResponseView: true,
+  cropArmPrefixes: true,
   nativeScrollbars: false,
   hidePath: true,
 };

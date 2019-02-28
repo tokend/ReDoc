@@ -152,7 +152,7 @@ const defaultTheme: ThemeInterface = {
       textTransform: 'uppercase',
     },
     level1Items: {
-      textTransform: 'uppercase',
+      textTransform: 'none',
     },
     arrow: {
       size: '1.5em',

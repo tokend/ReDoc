@@ -3,9 +3,10 @@ import * as React from 'react';
 
 import { ShelfIcon } from '../../common-elements/shelfs';
 import { IMenuItem, OperationModel } from '../../services';
-import { shortenHTTPVerb } from '../../utils/openapi';
+import { shortenHTTPVerb, shortenItemType } from '../../utils/openapi';
+import { OptionsContext } from '../OptionsProvider';
 import { MenuItems } from './MenuItems';
-import { MenuItemLabel, MenuItemLi, MenuItemTitle, OperationBadge } from './styled.elements';
+import { ItemTypeBadge, MenuItemLabel, MenuItemLi, MenuItemTitle, OperationBadge } from './styled.elements';
 
 export interface MenuItemProps {
   item: IMenuItem;
@@ -92,9 +93,16 @@ export interface OperationMenuItemContentProps {
 class OperationMenuItemContent extends React.Component<OperationMenuItemContentProps> {
   render() {
     const { item } = this.props;
+
     return (
       <MenuItemLabel depth={item.depth} active={item.active} deprecated={item.deprecated}>
-        <OperationBadge type={item.httpVerb}>{shortenHTTPVerb(item.httpVerb)}</OperationBadge>
+        <OptionsContext.Consumer>
+          {
+            options => options.itemTypesInsteadOfOperations
+              ? <ItemTypeBadge type={item.itemType}>{shortenItemType(item.itemType)}</ItemTypeBadge>
+              : <OperationBadge type={item.httpVerb}>{shortenHTTPVerb(item.httpVerb)}</OperationBadge>
+          }
+        </OptionsContext.Consumer>
         <MenuItemTitle width="calc(100% - 38px)">
           {item.name}
           {this.props.children}

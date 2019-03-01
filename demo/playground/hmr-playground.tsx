@@ -22,7 +22,16 @@ const swagger = window.location.search.indexOf('swagger') > -1; // compatibility
 const specUrl = swagger ? 'swagger.yaml' : big ? 'big-openapi.json' : 'openapi.yaml';
 
 let store;
-const options: RedocRawOptions = { nativeScrollbars: false };
+const options: RedocRawOptions = {
+  itemTypesInsteadOfOperations: true,
+  rootParamNameAsGroupHeader: true,
+  hideResponseSamples: true,
+  flattenResponseView: true,
+  cropArmPrefixes: true,
+  codeSamplesInsteadOfRequestSamples: true,
+  nativeScrollbars: false,
+  hidePath: true,
+};
 
 async function init() {
   const spec = await loadAndBundleSpec(specUrl);

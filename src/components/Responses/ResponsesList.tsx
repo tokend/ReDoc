@@ -3,6 +3,11 @@ import { ResponseModel } from '../../services/models';
 import styled from '../../styled-components';
 import { ResponseView } from './Response';
 
+import { OptionsContext } from '../OptionsProvider';
+
+import { ResponseDetailsWrap } from './styled.elements';
+import { ResponseDetails } from './ResponseDetails';
+
 const ResponsesHeader = styled.h3`
   font-size: 18px;
   padding: 0.2em 0;
@@ -24,12 +29,30 @@ export class ResponsesList extends React.PureComponent<ResponseListProps> {
     }
 
     return (
-      <div>
-        <ResponsesHeader> Responses </ResponsesHeader>
-        {responses.map(response => {
-          return <ResponseView key={response.code} response={response} />;
-        })}
-      </div>
+      <OptionsContext.Consumer>
+        {
+          options => {
+            if (!options.flattenResponseView) {
+              return (
+                <div>
+                  <ResponsesHeader> Responses </ResponsesHeader>
+                  {responses.map(response => {
+                    return <ResponseView key={response.code} response={response} />;
+                  })}
+                </div>
+              );
+            } else {
+              return responses.map(response => {
+                return (
+                  <ResponseDetailsWrap key={response.code}>
+                    <ResponseDetails response={response} />
+                  </ResponseDetailsWrap>
+                );
+              });
+            }
+          }
+        }
+      </OptionsContext.Consumer>
     );
   }
 }

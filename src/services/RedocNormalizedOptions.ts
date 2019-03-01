@@ -8,6 +8,13 @@ export interface RedocRawOptions {
   theme?: ThemeInterface;
   scrollYOffset?: number | string | (() => number);
   hideHostname?: boolean | string;
+  hidePath?: boolean;
+  hideResponseSamples?: boolean;
+  itemTypesInsteadOfOperations?: boolean;
+  rootParamNameAsGroupHeader?: boolean;
+  flattenResponseView?: boolean;
+  codeSamplesInsteadOfRequestSamples?: boolean;
+  cropArmPrefixes?: boolean;
   expandResponses?: string | 'all';
   requiredPropsFirst?: boolean | string;
   sortPropsAlphabetically?: boolean | string;
@@ -109,6 +116,13 @@ export class RedocNormalizedOptions {
   theme: ResolvedThemeInterface;
   scrollYOffset: () => number;
   hideHostname: boolean;
+  hidePath: boolean;
+  hideResponseSamples: boolean;
+  itemTypesInsteadOfOperations: boolean;
+  rootParamNameAsGroupHeader: boolean;
+  flattenResponseView: boolean;
+  cropArmPrefixes: boolean;
+  codeSamplesInsteadOfRequestSamples: boolean;
   expandResponses: { [code: string]: boolean } | 'all';
   requiredPropsFirst: boolean;
   sortPropsAlphabetically: boolean;
@@ -136,8 +150,15 @@ export class RedocNormalizedOptions {
 
     this.scrollYOffset = RedocNormalizedOptions.normalizeScrollYOffset(raw.scrollYOffset);
     this.hideHostname = RedocNormalizedOptions.normalizeHideHostname(raw.hideHostname);
+    this.hidePath = argValueToBoolean(raw.hidePath);
+    this.hideResponseSamples = argValueToBoolean(raw.hideResponseSamples);
     this.expandResponses = RedocNormalizedOptions.normalizeExpandResponses(raw.expandResponses);
     this.requiredPropsFirst = argValueToBoolean(raw.requiredPropsFirst);
+    this.itemTypesInsteadOfOperations = argValueToBoolean(raw.itemTypesInsteadOfOperations);
+    this.rootParamNameAsGroupHeader = argValueToBoolean(raw.rootParamNameAsGroupHeader);
+    this.flattenResponseView = argValueToBoolean(raw.flattenResponseView);
+    this.cropArmPrefixes = argValueToBoolean(raw.cropArmPrefixes);
+    this.codeSamplesInsteadOfRequestSamples = argValueToBoolean(raw.codeSamplesInsteadOfRequestSamples);
     this.sortPropsAlphabetically = argValueToBoolean(raw.sortPropsAlphabetically);
     this.noAutoAuth = argValueToBoolean(raw.noAutoAuth);
     this.nativeScrollbars = argValueToBoolean(raw.nativeScrollbars);

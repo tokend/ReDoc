@@ -10,6 +10,8 @@ import { ArraySchema } from './ArraySchema';
 import { ObjectSchema } from './ObjectSchema';
 import { OneOfSchema } from './OneOfSchema';
 
+import { shortenDisplayType } from '../../utils';
+
 export interface SchemaOptions {
   showTitle?: boolean;
   skipReadOnly?: boolean;
@@ -32,7 +34,7 @@ export class Schema extends React.Component<Partial<SchemaProps>> {
     if (isCircular) {
       return (
         <div>
-          <TypeName>{schema.displayType}</TypeName>
+          <TypeName>{shortenDisplayType(schema.displayType)}</TypeName>
           {schema.title && <TypeTitle> {schema.title} </TypeTitle>}
           <RecursiveLabel> Recursive </RecursiveLabel>
         </div>

@@ -3,7 +3,7 @@ import { darken, desaturate, lighten, readableColor, transparentize } from 'poli
 const orange: string = '#f2a100';
 const green: string = '#33A494';
 const blue: string = '#3a4180';
-// const lightBlue: string = '#0ea7ba';
+const lightBlue: string = '#0ea7ba';
 const red: string = '#ef5350';
 
 const fontFamily =
@@ -79,6 +79,11 @@ const defaultTheme: ThemeInterface = {
         backgroundColor: ({ colors }) => transparentize(0.9, colors.responses.info.color),
       },
     },
+    itemType: {
+      entry: lightBlue,
+      operation: green,
+      transaction: blue,
+    },
     http: {
       get: ({ colors }) => colors.success.main,
       post: ({ colors }) => colors.info.main,
@@ -152,6 +157,11 @@ const defaultTheme: ThemeInterface = {
     arrow: {
       size: '1.5em',
       color: theme => theme.menu.textColor,
+    },
+  },
+  params: {
+    underlinedHeader: {
+      textTransform: 'uppercase',
     },
   },
   logo: {
@@ -262,6 +272,11 @@ export interface ResolvedThemeInterface {
       redirect: HTTPResponseColos;
       info: HTTPResponseColos;
     };
+    itemType: {
+      transaction: string;
+      operation: string;
+      entry: string;
+    },
     http: {
       get: string;
       post: string;
@@ -330,6 +345,11 @@ export interface ResolvedThemeInterface {
       size: string;
       color: string;
     };
+  };
+  params: {
+    underlinedHeader: {
+      textTransform: string;
+    },
   };
   logo: {
     maxHeight: string;

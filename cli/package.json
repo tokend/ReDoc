@@ -1,6 +1,6 @@
 {
   "name": "@tokend/redoc-cli",
-  "version": "0.7.2",
+  "version": "0.8.1",
   "description": "Custom fork of the ReDoc's Command Line Interface (https://github.com/Rebilly/ReDoc)",
   "main": "index.js",
   "bin": "index.js",
@@ -8,7 +8,7 @@
   "author": "Roman Hotsiy <gotsijroman@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@tokend/redoc": "2.0.2",
+    "@tokend/redoc": "2.1.1",
     "chokidar": "^2.0.4",
     "handlebars": "^4.0.11",
     "isarray": "^2.0.4",

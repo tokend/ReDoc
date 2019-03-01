@@ -19,6 +19,8 @@ import { FieldDetail } from './FieldDetail';
 
 import { Badge } from '../../common-elements/';
 
+import { shortenDisplayType } from '../../utils';
+
 export class FieldDetails extends React.PureComponent<FieldProps> {
   render() {
     const { showExamples, field, renderDiscriminatorSwitch } = this.props;
@@ -29,7 +31,7 @@ export class FieldDetails extends React.PureComponent<FieldProps> {
       <div>
         <div>
           <TypePrefix>{schema.typePrefix}</TypePrefix>
-          <TypeName>{schema.displayType}</TypeName>
+          <TypeName>{shortenDisplayType(schema.displayType)}</TypeName>
           {schema.displayFormat && (
             <TypeFormat>
               {' '}

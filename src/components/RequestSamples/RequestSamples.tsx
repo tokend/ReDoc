@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
 import { OperationModel } from '../../services/models';
+import { OptionsContext } from '../OptionsProvider';
 import { PayloadSamples } from '../PayloadSamples/PayloadSamples';
 import { SourceCodeWithCopy } from '../SourceCode/SourceCode';
 
@@ -24,7 +25,17 @@ export class RequestSamples extends React.Component<RequestSamplesProps> {
     return (
       (hasSamples && (
         <div>
-          <RightPanelHeader> Request samples </RightPanelHeader>
+          <OptionsContext.Consumer>
+            {
+              options => <RightPanelHeader>
+                {
+                  options.codeSamplesInsteadOfRequestSamples
+                    ? 'Code samples'
+                    : 'Request samples'
+                }
+              </RightPanelHeader>
+            }
+          </OptionsContext.Consumer>
 
           <Tabs defaultIndex={0}>
             <TabList>

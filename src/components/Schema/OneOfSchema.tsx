@@ -7,6 +7,7 @@ import {
   OneOfList,
 } from '../../common-elements/schema';
 import { SchemaModel } from '../../services/models';
+import { OptionsContext } from '../OptionsProvider';
 import { Schema, SchemaProps } from './Schema';
 
 export interface OneOfButtonProps {
@@ -18,16 +19,30 @@ export interface OneOfButtonProps {
 @observer
 export class OneOfButton extends React.Component<OneOfButtonProps> {
   render() {
-    const { idx, schema, subSchema } = this.props;
+    const { idx, schema } = this.props;
     return (
       <StyledOneOfButton active={idx === schema.activeOneOf} onClick={this.activateOneOf}>
-        {subSchema.title || subSchema.typePrefix + subSchema.displayType}
+        <OptionsContext.Consumer>
+          {options => this.getContentToRender(options.cropArmPrefixes)}
+        </OptionsContext.Consumer>
       </StyledOneOfButton>
     );
   }
 
   activateOneOf = () => {
     this.props.schema.activateOneOf(this.props.idx);
+  };
+
+  getContentToRender = (cropArmPrefix: boolean) => {
+    const { subSchema } = this.props;
+
+    if (subSchema.title) {
+      return cropArmPrefix
+        ? subSchema.title.split('Arm')[1] // TODO: will fail if more than one 'Arm' present
+        : subSchema.title;
+    }
+
+    return subSchema.typePrefix + subSchema.displayType;
   };
 }
 

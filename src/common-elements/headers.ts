@@ -44,7 +44,7 @@ export const UnderlinedHeader = styled.h5`
   margin: 1em 0 1em 0;
   color: rgba(38, 50, 56, 0.5);
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: ${props => props.theme.params.underlinedHeader.textTransform};
   font-size: 0.929em;
   line-height: 20px;
 

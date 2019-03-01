@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { InnerPropertiesWrap, PropertyCellWithInner, UnderlinedHeader } from '../../common-elements';
+import { InnerPropertiesWrap, UnderlinedHeader } from '../../common-elements';
 import { PropertiesTable } from '../../common-elements/fields-layout';
 
 import { FieldModel } from '../../services/models';
@@ -60,23 +60,10 @@ export class ParametersGroup extends React.PureComponent<ParametersGroupProps, a
                 return (
                   <Aux>
                     <UnderlinedHeader>{rootField.schema.title}</UnderlinedHeader>
-                    <p>{rootField.schema.description}</p>
-                    <tr key={rootField.name + 'inner'}>
-                      <PropertyCellWithInner colSpan={2}>
-                        <InnerPropertiesWrap>
-                          <Schema schema={rootField.schema} />
-                        </InnerPropertiesWrap>
-                      </PropertyCellWithInner>
-                    </tr>
-                    <PropertiesTable>
-                      <tbody>
-                      {
-                        mapWithLast(rootFieldParameters, (field, isLast) => (
-                          <Field key={field.name} isLast={isLast} field={field} showExamples={true} />
-                        ))
-                      }
-                      </tbody>
-                    </PropertiesTable>
+                    <InnerPropertiesWrap>
+                      <p>{rootField.schema.description}</p>
+                      <Schema schema={rootField.schema} />
+                    </InnerPropertiesWrap>
                   </Aux>
                 );
               }

@@ -321,6 +321,14 @@ export const shortenItemType = type => {
   }
 };
 
+export const shortenDisplayType = displayType => {
+  if ((displayType || '').split(' or ').length > 2) {
+    return 'One of multiple values';
+  }
+
+  return displayType;
+};
+
 export function isRedocExtension(key: string): boolean {
   const redocExtensions = {
     'x-circular-ref': true,

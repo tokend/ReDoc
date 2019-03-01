@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import { Markdown } from '..';
 import { InnerPropertiesWrap, UnderlinedHeader } from '../../common-elements';
 import { PropertiesTable } from '../../common-elements/fields-layout';
-
 import { FieldModel } from '../../services/models';
 import { Field } from '../Fields/Field';
 
@@ -61,7 +61,7 @@ export class ParametersGroup extends React.PureComponent<ParametersGroupProps, a
                   <Aux>
                     <UnderlinedHeader>{rootField.schema.title}</UnderlinedHeader>
                     <InnerPropertiesWrap>
-                      <p>{rootField.schema.description}</p>
+                      <Markdown source={rootField.schema.description} />
                       <Schema schema={rootField.schema} />
                     </InnerPropertiesWrap>
                   </Aux>

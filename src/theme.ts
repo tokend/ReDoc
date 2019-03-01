@@ -81,8 +81,8 @@ const defaultTheme: ThemeInterface = {
     },
     itemType: {
       entry: lightBlue,
-      operation: blue,
-      transaction: green,
+      operation: green,
+      transaction: blue,
     },
     http: {
       get: ({ colors }) => colors.success.main,

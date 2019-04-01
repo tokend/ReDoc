@@ -36,6 +36,10 @@ export const ItemTypeBadge = styled.span.attrs((props: { type: string }) => ({
   &.transaction {
     background-color: ${props => props.theme.colors.itemType.transaction};
   }
+
+  &.empty {
+    visibility: hidden;
+  }
 `;
 
 export const OperationBadge = styled.span.attrs((props: { type: string }) => ({

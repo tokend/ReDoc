@@ -99,7 +99,7 @@ class OperationMenuItemContent extends React.Component<OperationMenuItemContentP
         <OptionsContext.Consumer>
           {
             options => options.itemTypesInsteadOfOperations
-              ? <ItemTypeBadge type={item.itemType}>{shortenItemType(item.itemType)}</ItemTypeBadge>
+              ? <ItemTypeBadge type={shortenItemType(item.itemType)}>{shortenItemType(item.itemType)}</ItemTypeBadge>
               : <OperationBadge type={item.httpVerb}>{shortenHTTPVerb(item.httpVerb)}</OperationBadge>
           }
         </OptionsContext.Consumer>

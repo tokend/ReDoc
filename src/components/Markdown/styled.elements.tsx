@@ -109,8 +109,10 @@ export const StyledMarkdownBlock = styled(PrismDiv as StyledComponent<
   }
 
   img {
-    max-width: 100%;
+    max-width: 80%;
     box-sizing: content-box;
+    display: block;
+    margin: 2.5rem auto;
   }
 
   ul,

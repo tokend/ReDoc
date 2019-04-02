@@ -22,7 +22,7 @@ export const MiddlePanel = styled.div`
 export const Section = styled.div.attrs(props => ({
   [SECTION_ATTR]: props.id,
 }))<{ underlined?: boolean }>`
-  padding: ${props => props.theme.spacing.sectionVertical}px 0;
+  margin: ${props => props.theme.spacing.sectionVertical}px 0;
 
   &:last-child {
     min-height: calc(100vh + 1px);

@@ -177,6 +177,7 @@ const defaultTheme: ThemeInterface = {
     backgroundColor: '#263238',
     width: '40%',
     textColor: '#ffffff',
+    isHidden: false,
   },
   codeSample: {
     backgroundColor: ({ rightPanel }) => darken(0.1, rightPanel.backgroundColor),
@@ -363,6 +364,7 @@ export interface ResolvedThemeInterface {
   rightPanel: {
     backgroundColor: string;
     textColor: string;
+    isHidden: boolean;
     width: string;
   };
   codeSample: {

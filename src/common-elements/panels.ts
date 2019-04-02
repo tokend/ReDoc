@@ -2,8 +2,15 @@ import { SECTION_ATTR } from '../services/MenuStore';
 import styled, { media } from '../styled-components';
 
 export const MiddlePanel = styled.div`
-  width: calc(100% - ${props => props.theme.rightPanel.width});
   padding: 0 ${props => props.theme.spacing.sectionHorizontal}px;
+
+  width: ${
+    props => props.theme.rightPanel.isHidden
+      ? '85%'
+      : `calc(100% - ${props.theme.rightPanel.width})`
+    };
+
+  ${props => props.theme.rightPanel.isHidden ? 'margin: auto;' : ''}
 
   ${media.lessThan('medium', true)`
     width: 100%;
@@ -46,6 +53,8 @@ export const RightPanel = styled.div`
   color: ${({ theme }) => theme.rightPanel.textColor};
   background-color: ${props => props.theme.rightPanel.backgroundColor};
   padding: 0 ${props => props.theme.spacing.sectionHorizontal}px;
+
+  ${props => props.theme.rightPanel.isHidden ? 'display: none;' : '' }
 
   ${media.lessThan('medium', true)`
     width: 100%;

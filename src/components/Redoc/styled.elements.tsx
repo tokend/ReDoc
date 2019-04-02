@@ -54,4 +54,6 @@ export const BackgroundStub = styled.div`
   ${media.lessThan('medium', true)`
     display: none;
   `};
+
+  ${props => props.theme.rightPanel.isHidden ? 'display: none;' : '' }
 `;

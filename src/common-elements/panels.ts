@@ -6,7 +6,7 @@ export const MiddlePanel = styled.div`
 
   width: ${
     props => props.theme.rightPanel.isHidden
-      ? '85%'
+      ? '80%'
       : `calc(100% - ${props.theme.rightPanel.width})`
     };
 

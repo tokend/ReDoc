@@ -38,7 +38,11 @@ export const ItemTypeBadge = styled.span.attrs((props: { type: string }) => ({
   }
 
   &.empty {
-    visibility: hidden;
+    display: none;
+  }
+
+  &.empty + span {
+    padding-left: 12px;
   }
 `;
 

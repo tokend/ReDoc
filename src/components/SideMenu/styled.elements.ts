@@ -170,6 +170,7 @@ export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => ({
 }))<MenuItemLabelType>`
   cursor: pointer;
   color: ${props => (props.active ? props.theme.colors.primary.main : props.theme.menu.textColor)};
+  font-weight: 600;
   margin: 0;
   padding: 12.5px ${props => props.theme.spacing.unit * 4}px;
   ${({ depth, type, theme }) =>

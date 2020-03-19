@@ -5,7 +5,7 @@ import * as webpack from 'webpack';
 import * as path from 'path';
 
 const nodeExternals = require('webpack-node-externals')({
-  // bundle in moudules that need transpiling + non-js (e.g. css)
+  // bundle in modules that need transpiling + non-js (e.g. css)
   whitelist: [
     'swagger2openapi',
     /reftools/,
@@ -33,7 +33,7 @@ try {
 const BANNER = `ReDoc - OpenAPI/Swagger-generated API Reference Documentation
 -------------------------------------------------------------
   Version: ${VERSION}
-  Repo: https://github.com/Rebilly/ReDoc`;
+  Repo: https://github.com/Redocly/redoc`;
 
 export default (env: { standalone?: boolean } = {}, { mode }) => ({
   entry: env.standalone ? ['./src/polyfills.ts', './src/standalone.tsx'] : './src/index.ts',
@@ -65,13 +65,13 @@ export default (env: { standalone?: boolean } = {}, { mode }) => ({
     ? {
         esprima: 'esprima',
         'node-fetch': 'null',
+        'node-fetch-h2': 'null',
+        yaml: 'null',
+        'safe-json-stringify': 'null',
       }
     : (context, request, callback) => {
         // ignore node-fetch dep of swagger2openapi as it is not used
-        if (/node-fetch$/i.test(request)) {
-          return callback(null, 'var undefined');
-        }
-        if (/esprima$/i.test(request)) {
+        if (/esprima|node-fetch|node-fetch-h2|yaml|safe-json-stringify$/i.test(request)) {
           return callback(null, 'var undefined');
         }
         return nodeExternals(context, request, callback);
@@ -134,7 +134,6 @@ export default (env: { standalone?: boolean } = {}, { mode }) => ({
           loader: 'css-loader',
           options: {
             sourceMap: false,
-            minimize: true,
           },
         },
       },

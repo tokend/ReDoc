@@ -1,21 +1,16 @@
 import { SECTION_ATTR } from '../services/MenuStore';
 import styled, { media } from '../styled-components';
 
-export const MiddlePanel = styled.div`
+export const MiddlePanel = styled.div<{ compact?: boolean }>`
+  width: calc(100% - ${props => props.theme.rightPanel.width});
   padding: 0 ${props => props.theme.spacing.sectionHorizontal}px;
 
-  width: ${
-    props => props.theme.rightPanel.isHidden
-      ? '80%'
-      : `calc(100% - ${props.theme.rightPanel.width})`
-    };
-
-  ${props => props.theme.rightPanel.isHidden ? 'margin: auto;' : ''}
-
-  ${media.lessThan('medium', true)`
+  ${({ compact, theme }) =>
+  media.lessThan('medium', true)`
     width: 100%;
-    padding: ${props =>
-      `${props.theme.spacing.sectionVertical}px ${props.theme.spacing.sectionHorizontal}px`};
+    padding: ${`${compact ? 0 : theme.spacing.sectionVertical}px ${
+    theme.spacing.sectionHorizontal
+    }px`};
   `};
 `;
 
@@ -36,8 +31,8 @@ export const Section = styled.div.attrs(props => ({
     padding: 0;
   `}
   ${(props: any) =>
-    (props.underlined &&
-      `
+  (props.underlined &&
+    `
     position: relative;
 
     &:not(:last-of-type):after {
@@ -49,7 +44,7 @@ export const Section = styled.div.attrs(props => ({
       border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
   `) ||
-    ''}
+  ''}
 `;
 
 export const RightPanel = styled.div`
@@ -63,7 +58,7 @@ export const RightPanel = styled.div`
   ${media.lessThan('medium', true)`
     width: 100%;
     padding: ${props =>
-      `${props.theme.spacing.sectionVertical}px ${props.theme.spacing.sectionHorizontal}px`};
+  `${props.theme.spacing.sectionVertical}px ${props.theme.spacing.sectionHorizontal}px`};
   `};
 `;
 

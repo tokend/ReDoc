@@ -283,7 +283,7 @@ export interface ResolvedThemeInterface {
       transaction: string;
       operation: string;
       entry: string;
-    },
+    };
     http: {
       get: string;
       post: string;
@@ -358,7 +358,7 @@ export interface ResolvedThemeInterface {
   params: {
     underlinedHeader: {
       textTransform: string;
-    },
+    };
   };
   logo: {
     maxHeight: string;

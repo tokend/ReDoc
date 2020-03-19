@@ -19,6 +19,7 @@ export const OneOfButton = styled.li<{ active: boolean }>`
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 0.8em;
   cursor: pointer;
   border: 1px solid ${props => props.theme.colors.primary.main};

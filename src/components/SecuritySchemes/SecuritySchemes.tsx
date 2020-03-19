@@ -4,6 +4,7 @@ import { SecuritySchemesModel } from '../../services/models';
 
 import { H2, MiddlePanel, Row, Section, ShareLink } from '../../common-elements';
 import { OpenAPISecurityScheme } from '../../types';
+import { titleize } from '../../utils/helpers';
 import { Markdown } from '../Markdown/Markdown';
 import { StyledMarkdownBlock } from '../Markdown/styled.elements';
 
@@ -48,7 +49,7 @@ export class OAuthFlow extends React.PureComponent<OAuthFlowProps> {
             <strong> Scopes: </strong>
           </div>
           <ul>
-            {Object.keys(flow!.scopes).map(scope => (
+            {Object.keys(flow!.scopes || {}).map(scope => (
               <li key={scope}>
                 <code>{scope}</code> - <Markdown inline={true} source={flow!.scopes[scope] || ''} />
               </li>
@@ -79,12 +80,12 @@ export class SecurityDefs extends React.PureComponent<SecurityDefsProps> {
               <table className="security-details">
                 <tbody>
                   <tr>
-                    <th> Security scheme type: </th>
+                    <th> Security Scheme Type </th>
                     <td> {AUTH_TYPES[scheme.type] || scheme.type} </td>
                   </tr>
                   {scheme.apiKey ? (
                     <tr>
-                      <th> {scheme.apiKey.in} parameter name:</th>
+                      <th> {titleize(scheme.apiKey.in || '')} parameter name:</th>
                       <td> {scheme.apiKey.name} </td>
                     </tr>
                   ) : scheme.http ? (
@@ -93,19 +94,22 @@ export class SecurityDefs extends React.PureComponent<SecurityDefsProps> {
                         <th> HTTP Authorization Scheme </th>
                         <td> {scheme.http.scheme} </td>
                       </tr>,
-                      scheme.http.scheme === 'bearer' &&
-                        scheme.http.bearerFormat && (
-                          <tr key="bearer">
-                            <th> Bearer format </th>
-                            <td> "{scheme.http.bearerFormat}" </td>
-                          </tr>
-                        ),
+                      scheme.http.scheme === 'bearer' && scheme.http.bearerFormat && (
+                        <tr key="bearer">
+                          <th> Bearer format </th>
+                          <td> &quot;{scheme.http.bearerFormat}&quot; </td>
+                        </tr>
+                      ),
                     ]
                   ) : scheme.openId ? (
                     <tr>
                       <th> Connect URL </th>
                       <td>
-                        <a target="_blank" href={scheme.openId.connectUrl}>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={scheme.openId.connectUrl}
+                        >
                           {scheme.openId.connectUrl}
                         </a>
                       </td>

@@ -1,3 +1,4 @@
+// import { observe } from 'mobx';
 import { observer } from 'mobx-react';
 import * as React from 'react';
 
@@ -16,7 +17,7 @@ export interface MenuItemProps {
 
 @observer
 export class MenuItem extends React.Component<MenuItemProps> {
-  ref: Element | null;
+  ref = React.createRef<HTMLLabelElement>();
 
   activate = (evt: React.MouseEvent<HTMLElement>) => {
     this.props.onActivate!(this.props.item);
@@ -32,8 +33,8 @@ export class MenuItem extends React.Component<MenuItemProps> {
   }
 
   scrollIntoViewIfActive() {
-    if (this.props.item.active && this.ref) {
-      this.ref.scrollIntoViewIfNeeded();
+    if (this.props.item.active && this.ref.current) {
+      this.ref.current.scrollIntoViewIfNeeded();
     }
   }
 
@@ -90,7 +91,15 @@ export interface OperationMenuItemContentProps {
 }
 
 @observer
-class OperationMenuItemContent extends React.Component<OperationMenuItemContentProps> {
+export class OperationMenuItemContent extends React.Component<OperationMenuItemContentProps> {
+  ref = React.createRef<HTMLLabelElement>();
+
+  componentDidUpdate() {
+    if (this.props.item.active && this.ref.current) {
+      this.ref.current.scrollIntoViewIfNeeded();
+    }
+  }
+
   render() {
     const { item } = this.props;
 

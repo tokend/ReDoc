@@ -2,6 +2,7 @@ import defaultTheme, { ResolvedThemeInterface, resolveTheme, ThemeInterface } fr
 import { querySelector } from '../utils/dom';
 import { isNumeric, mergeObjects } from '../utils/helpers';
 
+import { LabelsConfigRaw, setRedocLabels } from './Labels';
 import { MDXComponentMeta } from './MarkdownRenderer';
 
 export interface RedocRawOptions {
@@ -27,18 +28,30 @@ export interface RedocRawOptions {
   disableSearch?: boolean | string;
   onlyRequiredInSamples?: boolean | string;
   showExtensions?: boolean | string | string[];
+  hideSingleRequestSampleTab?: boolean | string;
+  menuToggle?: boolean | string;
+  jsonSampleExpandLevel?: number | string | 'all';
+  hideSchemaTitles?: boolean | string;
+  payloadSampleIdx?: number;
+  expandSingleSchemaField?: boolean | string;
 
   unstable_ignoreMimeParameters?: boolean;
 
   allowedMdComponents?: Dict<MDXComponentMeta>;
+
+  labels?: LabelsConfigRaw;
+
+  enumSkipQuotes?: boolean | string;
+
+  expandDefaultServerVariables?: boolean;
 }
 
-function argValueToBoolean(val?: string | boolean): boolean {
+function argValueToBoolean(val?: string | boolean, defaultValue?: boolean): boolean {
   if (val === undefined) {
-    return false;
+    return defaultValue || false;
   }
   if (typeof val === 'string') {
-    return true;
+    return val === 'false' ? false : true;
   }
   return val;
 }
@@ -113,6 +126,28 @@ export class RedocNormalizedOptions {
     return value;
   }
 
+  static normalizePayloadSampleIdx(value: RedocRawOptions['payloadSampleIdx']): number {
+    if (typeof value === 'number') {
+      return Math.max(0, value); // always greater or equal than 0
+    }
+
+    if (typeof value === 'string') {
+      return isFinite(value) ? parseInt(value, 10) : 0;
+    }
+
+    return 0;
+  }
+
+  private static normalizeJsonSampleExpandLevel(level?: number | string | 'all'): number {
+    if (level === 'all') {
+      return +Infinity;
+    }
+    if (!isNaN(Number(level))) {
+      return Math.ceil(Number(level));
+    }
+    return 2;
+  }
+
   theme: ResolvedThemeInterface;
   scrollYOffset: () => number;
   hideHostname: boolean;
@@ -134,10 +169,19 @@ export class RedocNormalizedOptions {
   disableSearch: boolean;
   onlyRequiredInSamples: boolean;
   showExtensions: boolean | string[];
+  hideSingleRequestSampleTab: boolean;
+  menuToggle: boolean;
+  jsonSampleExpandLevel: number;
+  enumSkipQuotes: boolean;
+  hideSchemaTitles: boolean;
+  payloadSampleIdx: number;
+  expandSingleSchemaField: boolean;
 
   /* tslint:disable-next-line */
   unstable_ignoreMimeParameters: boolean;
   allowedMdComponents: Dict<MDXComponentMeta>;
+
+  expandDefaultServerVariables: boolean;
 
   constructor(raw: RedocRawOptions, defaults: RedocRawOptions = {}) {
     raw = { ...defaults, ...raw };
@@ -147,6 +191,9 @@ export class RedocNormalizedOptions {
     );
 
     this.theme.extensionsHook = hook as any;
+
+    // do not support dynamic labels changes. Labels should be configured before
+    setRedocLabels(raw.labels);
 
     this.scrollYOffset = RedocNormalizedOptions.normalizeScrollYOffset(raw.scrollYOffset);
     this.hideHostname = RedocNormalizedOptions.normalizeHideHostname(raw.hideHostname);
@@ -168,9 +215,21 @@ export class RedocNormalizedOptions {
     this.disableSearch = argValueToBoolean(raw.disableSearch);
     this.onlyRequiredInSamples = argValueToBoolean(raw.onlyRequiredInSamples);
     this.showExtensions = RedocNormalizedOptions.normalizeShowExtensions(raw.showExtensions);
+    this.hideSingleRequestSampleTab = argValueToBoolean(raw.hideSingleRequestSampleTab);
+    this.menuToggle = argValueToBoolean(raw.menuToggle, true);
+    this.jsonSampleExpandLevel = RedocNormalizedOptions.normalizeJsonSampleExpandLevel(
+      raw.jsonSampleExpandLevel,
+    );
+    this.enumSkipQuotes = argValueToBoolean(raw.enumSkipQuotes);
+    this.hideSchemaTitles = argValueToBoolean(raw.hideSchemaTitles);
+    this.payloadSampleIdx = RedocNormalizedOptions.normalizePayloadSampleIdx(raw.payloadSampleIdx);
+    this.expandSingleSchemaField = argValueToBoolean(raw.expandSingleSchemaField);
 
+    // eslint-disable-next-line @typescript-eslint/camelcase
     this.unstable_ignoreMimeParameters = argValueToBoolean(raw.unstable_ignoreMimeParameters);
 
     this.allowedMdComponents = raw.allowedMdComponents || {};
+
+    this.expandDefaultServerVariables = argValueToBoolean(raw.expandDefaultServerVariables);
   }
 }

@@ -147,7 +147,7 @@ export const menuItemDepth = {
     font-size: 0.929em;
     text-transform: ${({ theme }) => theme.menu.level1Items.textTransform};
     &:hover {
-      color: ${props => props.theme.colors.primary.main};
+      color: ${props => props.theme.menu.activeTextColor};
     }
   `,
   2: css`

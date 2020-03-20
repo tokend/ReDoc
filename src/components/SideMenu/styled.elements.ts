@@ -40,6 +40,10 @@ export const ItemTypeBadge = styled.span.attrs((props: { type: string }) => ({
   &.empty {
     display: none;
   }
+  
+  &.undefined {
+    display: none;
+  }
 
   &.empty + span {
     padding-left: 12px;
@@ -196,12 +200,13 @@ export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => ({
   }
 `;
 
-export const MenuItemTitle = styled.span<{ width?: string }>`
+export const MenuItemTitle = styled.span<{ width?: string, padding?: string }>`
   display: inline-block;
   vertical-align: middle;
   width: ${props => (props.width ? props.width : 'auto')};
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-left: ${props => (props.padding ? props.padding : '')};
 `;
 
 export const RedocAttribution = styled.div`

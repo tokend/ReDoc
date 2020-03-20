@@ -3,98 +3,64 @@ openapi: 3.0.0
 info:
   title: TokenD
   description: |
-    ### What is TokenD?
-    TokenD is a white label platform that consolidates the experience gained by Distributed Lab in building the production-ready tokenization solutions. It allows you to issue, transfer, and exchange your assets with high level of privacy, security, and auditability while following regulations of your jurisdiction. TokenD is designed for enterprises who are willing to take advantage of tokenization or experiment with the blockchain technology without the need of maintaining the expensive team of blockchain experts and within the shortest time to market.
-    ### Why we built TokenD?
-    * There are no out-of-box operating solutions available.
-    * Average delivery time for MVP was  ~1 year.
-    * 70% of development work is the same for all projects.
-    * Basic features require changes on the blockchain level.
-    * High entry threshold for new developers.
 
-    ### How TokenD differs from other platforms?
+    TokenD is a multifunctional white label platform that consolidates the experience gained by Distributed Lab in building the production-ready tokenization solutions. It allows you to issue, transfer, and exchange your assets with high level of privacy, security, and auditability while following regulations of your jurisdiction. TokenD is designed for building tokenization solutions which you fully own and can customize; using its ready-to-use toolkit, one can release their blockchain product in a short time to market and without having to maintain the team of blockchain developers.
 
-      |Feature Set|R3 Corda|Hyperledger Fabric|Ethereum|TokenD|
-      |:----:|:--------:|:--------:|:-----:|:------:|
-      |Consensus|RAFT|Kafka|pBFT|FBA|
-      |Smart Contracts|✔|✔|✔|✔|
-      |Private Transactions|✔|✔|✔||
-      |External System<br> Integration toolkit||||✔|
-      |Web/iOS/Android Wallet|||✔|✔|
-      |Commercial-scale funds <br> management kit||||✔|
-      |Role-based Access Control||✔||✔|
-      |Vanilla Regulatory<br> compliance framework||||✔|
+    In the following video you can see sub-set of features supported by TokenD applied to the tokenized tickets use-case.
 
-    #### External System Integration toolkit
-    * Consistent sequence of all operations occurring in the system with a set of changes applied to the ledger.
-    * SDKs, intuitive REST API.
-    * Unique ID tracking for crucial operations.
-    * Reference implementation of external systems integration.
+    <p align="center"><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6519497040014176256?compact=1" height="304" width="524" margin="2.5rem auto" max-width="80%" frameborder="0" allowfullscreen=""></iframe></p>
 
-    #### Web/iOS/Android Wallet
-    * Fully featured opensource native web, iOS and Android apps.
-    * Secure on device key storage;
-    * Designed to ease customization;
-    * Native SDKs to build your own implementation;
-
-    #### Commercial-scale funds management kit
-    * Tasks based issuance and withdrawal requests designed for secure integrations with external systems;
-    * Secure offline app for tokens issuance authorization;
-    * On-chain crowdfunding module with several price finding algorithms;
-    * Decentralized exchange;
-
-    #### Role-based Access Control & Multi-signature
-    * Define on-chain user access rights to follow regulations;
-    * Tasks based approach to review critical user’s operations in the system;
-    * Define signers rules to distribute rights among admins of the system to minimize risks of fraud;
-    * Use multi-signature for decentralized decision making.
-
-    #### Vanilla Regulatory compliance framework
-    * Manage deposit, transfer, withdrawal limits to follow regulation and/or secure the system;
-    * Tasks based approach for user roles transition;
-    * GDPR compilate off-chain personal data storage with guaranty of integrity;
-    * Direct user-admin communication to resolve issues.
+    ### Useful Links
+    * [Resource Center](https://tokend.io/downloads/)
+    * Applications: [Web](https://github.com/tokend/web-client), [iOS](https://github.com/tokend/ios-app), [Android](https://github.com/tokend/android-client), [Admin Panel](https://github.com/tokend/admin-panel)
+    * SDKs: [JS](https://github.com/tokend/new-js-sdk), [iOS](https://github.com/tokend/ios-sdk), [Kotlin](https://github.com/tokend/kotlin-sdk)
+    * API Documentation: [Horizon](https://docs.tokend.io/horizon), [Identity Service](https://docs.tokend.io/identity), [Core | XDR definitions](https://docs.tokend.io/xdr)
+    * Deployment:  [Developer Edition](https://github.com/tokend/developer-edition), [Production Deployment Guide](https://gitlab.com/tokend/tokend-cli), [Mobile wallet to Developer edition connection guide](https://mobile-qr.tokend.services)
   x-logo:
     url: "https://tokend.io/images/logo.svg"
     backgroundColor: "transparent"
     altText: "TokenD"
   contact:
     email: dev@distributedlab.com
-    url: https://tokend.io
+    url: https://tokend.atlassian.net/servicedesk/customer/portals
     name: Support
-  version: "Release 3.0"
+  version: "4.4.0"
 servers:
   - url: https://tokend.io
     description: TokenD
 
 tags:
-  - name: Try the demo
+  - name: Introduction
     description: |
-      ### TokenD Developer Edition
+      TokenD is designed for entrepreneurs and enterprises willing to take advantage of tokenization or experiment with the blockchain technology. TokenD can be used to build your own tailored next-generation accounting
+      system: flexible, secure, auditable, and adaptive in terms of legislation.
 
-      Quick way for running [TokenD](https://tokend.io) development environment with [Docker](https://www.docker.com). There are known issues and it's not intended for any kind of production use.
-      If you are interested in running TokenD please reach us at `dev@distributedlab.com`.
+      #### Flexibility
+      Flexibility lies in the separation of processes in accounting:
+      identity management, wallet management, asset transfer and exchange, role management,
+      token lifecycle management, and deposit/withdraw. All these processes are performed by
+      independent modules and can be customized through adjustable template smart contracts that
+      the platform supports. Combination of these approaches allows for an easy integration with
+      existing legacy systems.
 
-      #### Requirements
+      #### Security
+      *User secret data never touch the servers*. The system allows for interaction in which users never transfer
+      their secret data (e.g., password) to the server. This means that the compromise of this data during
+      the network transfer—as well as through hacking the key server—is excluded. Therefore, the platform
+      owner no longer has to consider risks related to storing the user secret data as well as spend time
+      and resources on providing additional security.
 
-      * [Docker](https://www.docker.com/get-started)
-      * [Compose](https://docs.docker.com/compose/install/)
-      * Linux/MacOS, Windows support is experimental and has known issues.
+      *Hacker compromise won’t corrupt the system state*. The state of the ledger entirely depends on
+      transactions performed. Since all transactions are initiated by the users themselves via
+      cryptographic keys, a malicious party won’t be able to modify the shared ledger even having full
+      access to one of the servers storing it.
 
-      #### Bootstraping your environment
+      #### Auditability
+      Accounting system can be real-time audited by an independent party 24/7. In particular, an auditor can be given a node with blockchain synchronized in real time and automatically (using the dedicated software) verify the correctness of ongoing processes.
 
-      ```sh
-      # drop any persistent state to make sure you are working with clean install
-      $ docker-compose down -v
-      # spin everything up
-      $ docker-compose up -d
-      # wait while environment initialization is complete
-      $ docker-compose logs -f initscripts
-      ```
+      #### Adaptiveness
+      The system supports adaptive permission management, which relates to both users and admins. Access levels can be fully customized for each account according to factors you adjust (e.g., country, age, income, etc.). This allows adapting the system's business logic according to regulations of particular legislation.
 
-      Now you should be able to access web client at [http://localhost:8060](http://localhost:8060) and admin dashboard at [http://localhost:8070](http://localhost:8070) default seed for login is `SAMJKTZVW5UOHCDK5INYJNORF2HRKYI72M5XSZCBYAHQHR34FFR4Z6G4`
-
-      These instructions are just a guideline for what you should generally do. You may modify provided `docker-compose.yml` to accommodate your needs.
   - name: Architecture
     description: |
       TokenD is a highly modular system built using the microservices architecture.
@@ -105,140 +71,1191 @@ tags:
       connections is specified in figure below.
 
       ![Architecture of TokenD system](https://gitlab.com/tokend/diagrams/raw/feature/test/png/ecosystem_a4.png)
+  # - name: Pricing
+  #   description: |
+  #       - *5 Business Administrators – 1000 EUR/month*
+  #       - *20 Business Administrators – 2000 EUR/month*
 
-      #### Node
+  #       TokenD is licensed by a Business Administrators. Trial version includes 2 Business Administrator available for 600,000 blocks (equal to ~30 days). Transactions signed by the Business Administrators at the expiration of the license are not accepted. Business Administrator is a role in the TokenD system that is responsible for setting up business rules. Only Business Administrator can perform the following operations:
+  #       - add a user into the system;
+  #       - manage roles and rules in the system;
+  #       - set user roles in the system (confirm successful completion of the KYC (Know Your Customer) procedure);
+  #       - set up fees for user operations;
+  #       - set up rules for the token creation, review token creation requests;
+  #       - set up rules for the creation of crowd investing campaigns;
+  #       - list/delist particular asset pairs on a decentralized exchange;
+  #       - set up limits and review limit requests created by users;
+  #       - access protected data provided by users;
+  #       - access history of all operations performed in the system;
+  #       - create/update/delete Business Administrators.
+  #       <br>
+  #       <br>
 
-      **_Node_** is a key component of the platform. It processes transactions, manages
-      history, and provides an easy to use API to access the blockchain data. It
-      consists of two modules:
-
-      * **[Core](https://docs.tokend.io/xdr)** — a replicated state machine that maintains a local copy of
-      cryptographic ledger and processes transactions against it in consensus with
-      a set of peers. It implements the federated consensus protocol and is
-      responsible for tokens accounting and roles management. Documentation for the
-      API is available [here](https://docs.tokend.io/xdr).
-
-      * **_[Horizon](https://docs.tokend.io/horizon)_** is the client-facing REST API server. It acts as an interface
-      between the core and applications that want to access the network. It allows
-      submitting transactions to the network, checking the status of accounts, and
-      viewing transaction history. Documentation is available [here](https://docs.tokend.io/horizon).
-
-      #### Identity Service (KYC Storage)
-
-      **_[Identity Service](https://docs.tokend.io/identity)_** is a GDPR compliant module which stores data collected
-      during the KYC (know your customer) procedure. To access the data, a user or
-      admin needs to provide the digital signature, which is verified against
-      the most recent state of the ledger. Such an approach provides a high level of
-      security. This module also stores client-side-encrypted private
-      keys of users. This prevents a malicious actor from getting access
-      to the accounts of the system even having a full access to the storage.
-      Documentation for this module is available [here](https://docs.tokend.io/identity).
-
-      #### Web, iOS, Android wallets
-
-      **_[Web](https://github.com/tokend/web-client), [iOS](https://github.com/tokend/ios-app), [Android](https://github.com/tokend/android-client) wallets_** are client facing applications that
-      provide a wide range of functionalities: from storage of encrypted private
-      keys on the device, to token transfers, withdrawals, and trading. They
-      interact with the core of the system directly through the Horizon module and
-      signs all transactions and requests locally. Such an approach ensures that
-      users’ private keys are safe even in case of MITM (man in the middle) attacks.
-
-      #### PSIM
-      **_[PSIM](https://gitlab.com/tokend/coinpayments)_** (Payment Services Integration Module) is a set of modules that
-      play the role of a bridge between TokenD and cryptocurrencies’ public
-      blockchains, banks, payment gateways, exchanges. They reflect corresponding
-      operations like deposit, withdrawal and exchange rate changes in another system.
-      Reference implementation of integration with CoinPayments is available [here](https://gitlab.com/tokend/coinpayments).
-  - name: Licensing
+  #       >
+  #         Business Administrator shouldn't necessarily be responsible for performing all the operations specified above. Access can be granted to a subset of these operations.
+  #       >
+  #         During the system setup, one Business Administrator account is created by default with the rights to manage other Business Administrators, their rules and roles.
+  - name: Key Concepts
+  - name: Keys Management
     description: |
-      TokenD is licensed by a Business Administrators. Trial version includes 2 Business Administrator available for 600,000 blocks (equal to ~30 days). Transactions signed by the Business Administrators at the expiration of the license are not accepted. Business Administrator is a role in the TokenD system that is responsible for setting up business rules. Only Business Administrator can perform the following operations:
-      - add a user into the system;
-      - manage roles and rules in the system;
-      - set user roles in the system (confirm successful completion of the KYC (Know Your Customer) procedure);
-      - set up fees for user operations;
-      - set up rules for the token creation, review token creation requests;
-      - set up rules for the creation of crowd investing campaigns;
-      - list/delist particular asset pairs on a decentralized exchange;
-      - set up limits and review limit requests created by users;
-      - access protected data provided by users;
-      - access history of all operations performed in the system;
-      - create/update/delete Business Administrators.
-      <br>
-      <br>
+      Like any other system, TokenD requires users to register and authorize.
+      The crucial difference, however, lies in the following aspects:
+      - **Password never leaves the user's device**. There is no sense for an attacker
+      in listening to the communication between a user and server (no sensitive data is ever transferred).
+      - **Server does not store the user confidential/sensitive data**. User confidential data is no longer
+      under the leakage threat, meaning that platform owners can focus on their service—provision of a
+      playground for operation with tokenized assets—rather than on providing the security of the user
+      secret data (e.g., passwords, keys).
+      - **No password authentication. User flow stays the same**: enter a password. Under the hood,
+      however, the process is entirely different (for more details, see authorization).
+      - **Database compromise is senseless**. Information transferred and stored on the server
+      doesn’t present value for an attacker because it is encrypted by the keys which are known ONLY
+      to a user.
+      - **Keys are stored on a server, but only a user has access**. The server is only a custodian
+      storing encrypted keys which only a user knows how to decrypt.
+  - name: AML/KYC
+  - name: Tokens
+    description: |
+      In TokenD, any account with corresponding permission can issue their
+      tokens. Since there are two basic types of accounts (user and admin)
+      tokens can also be nominally split into two types:
+      - Admin-issued tokens
+      - User-issued tokens
 
-      >
-        * Business Administrator shouldn't necessarily be responsible for performing all the operations specified above. Access can be granted to a subset of these operations.
-        * During the system setup, one Business Administrator account is created by default with the rights to manage other Business Administrators, their rules and roles.
+      The only distinction between these two lies in the access level: users
+      requests on token creation, pre-issuance, etc. are to be approved by
+      admins. While an admin, if has the corresponding permission, manages a
+      token throughout its lifecycle directly.
+  - name: Admins
+    description: |
+      TokenD doesn’t presume a complete suite of admins with standard rights,
+      but it rather gives you a toolset for realizing your own platform
+      management policy. It is possible to customize:
+      - Number of admins on the platform
+      - Set of permissions available for each admin
+      - Weight each admin has when providing the permissioned operation
+      (multisignature)
 
-        #### Pricing for Startups
-        - 5 Business Administrators – 1000 EUR/month
-        - 20 Business Administrators – 2000 EUR/month
+      ## Delegation of responsibilities
+      Most decentralized blockchain systems do not support the allocation
+      of duties—users are mostly equal in their rights. This doesn’t work
+      in the business sector, where you must have competent people each with
+      their own tasks and responsibilities.
+
+      Being not just a system supporting accounts of different access
+      levels, TokenD allows setting up your own hierarchy of permissions
+      which is strictly controlled via cryptographic keys.
+
+      Each admin is given a key that allows performing only a strict
+      set of operations which you entirely select (e.g., approve/reject
+      KYC requests of users from Europe + impose fees;)
+
+      ## Diversification of risks
+      TokenD supports account weights. To perform an operation, an
+      initiator should have both required permission and enough weight.
+
+      Moreover, an operation can also be initiated and fulfilled by
+      multiple admins whose total weight matches the operation threshold.
+      This mechanism allows distributing the authority over processes
+      among a specific number of parties.
+
+      Therefore, you can diversify risks related to individual admin’s
+      censorship by distributing responsibility among others and thus
+      increase the objectiveness of decisions taken in the system.
+
+      ## Admin registration
+      The process of admin registration, unlike the user registration, is
+      rather more earnest and implies greater responsibility. In particular,
+      a party will be asked to go through the sign-up flow and thus get an
+      account ID.
+
+      Using an external communication channel, a party should send their
+      account ID to an existing admin (with the corresponding permission)
+      who will subsequently add a new admin account.
+  - name: Guides
+    description: |
+      Guides will mostly cover the logic of submitting transactions, so here are a few statements about transactions
+      you may want to know before starting to work with TokenD SDK and TokenD API:
+       * Transaction **MAY** contain one or more operations
+       * Transaction **MUST** have a `source` - the ID of the existing account in the TokenD system
+       * Transaction **MUST** be signed with any valid `ed25519` keypair
+       * Preventing transactions from one network to be sent to another is achieved via "Network Passphrase" that
+       should be unique for every TokenD Network and is being set during deployment
+
+      Javascript SDK exposes the `ApiCaller` and `Wallet` classes that will simplify the process of crafting/signing the
+      transactions.
+
+      Let's assume our user has the TokenD account with ID - `GD2XNPQCN6A6IRWJDADOVAL4YMDPYB6VTQRIXW7MVQAHCNBMO46KBCIC`
+      and one of it's signers has the secret seed - `SBW7DY3ZEYGGWQJG7JOPYXDIQFZYAC4DKIO75VINZXPIWWIQIJDCDCMZ`.
+      *It's important to know* that the seed of the signer and the account ID **MAY NOT** correspond to one key pair -
+      the list of account signers can be changed, while any account ID is permanent.
+
+      To submit the transaction to the TokenD network, we should create an `ApiCaller` instance and provide it a
+      `Wallet` instance that we want to be used for signing transactions.
+
+      ```javascript
+        import { Wallet, ApiCaller } from '@tokend/js-sdk'
+
+        const wallet = new Wallet(
+          "", // email param, usually be ommited here
+          "SBW7DY3ZEYGGWQJG7JOPYXDIQFZYAC4DKIO75VINZXPIWWIQIJDCDCMZ", // the secret seed of the signer
+          "GD2XNPQCN6A6IRWJDADOVAL4YMDPYB6VTQRIXW7MVQAHCNBMO46KBCIC", // the ID of the account
+        )
+        const api = ApiCaller.getInstance('http://tokend-backend.com')
+        api.useWallet(wallet)
+        api.usePassphrase("Our network passphrase")
+      ```
+
+      Now `api` will automatically sign any transaction and set it's source from the `Wallet` we've provided.
+
+      ```javascript
+        await api.postOperations(op1, op2, op3)
+      ```
 # NOTE
 #
+# Add tag to x-tagGroups or it won't be displayed
 paths:
-  /links:
+  /token_lifecycle:
     get:
-      summary: Dev-tools
+      summary: Token Lifecycle
       tags:
-        - Other
+        - Tokens
       description: |
-        * [Web client](https://github.com/tokend/web-client)
-        * [Admin Panel](https://github.com/tokend/admin-panel)
-        * [JS SDK](https://github.com/tokend/new-js-sdk)
-        * [iOS App](https://github.com/tokend/ios-app)
-        * [iOS SDK](https://github.com/tokend/ios-sdk)
-        * [Android App](https://github.com/tokend/android-client)
-        * [Kotlin SDK](https://github.com/tokend/kotlin-sdk)
-        * [Horizon API](https://docs.tokend.io/horizon)
-        * [Identity Service API](https://docs.tokend.io/identity)
-        * [Core API | XDR definitions](https://docs.tokend.io/xdr)
-        * [Production Deployment Guide](https://gitlab.com/tokend/tokend-cli)
-        * [Developer Edition](https://github.com/tokend/developer-edition)
-      operationId: links
-  /about:
+        Token lifecycle consists of following steps:
+        - Creation
+        - Pre-issuance
+        - Issuance
+        - Transfer
+        - Trade
+        - Redemption
+
+        ### Creation
+        At this stage, a token cannot be traded or transferred because it
+        doesn’t actually exist. This is simply an announcement of token
+        details: name, max issuance amount, permissions required to interact
+        with this token.
+
+        ### Pre-issuance
+        After the pre-issuance stage, actual tokens already exist, but no
+        one yet owns them—they are all locked up on a smart contract.
+        Pre-issuance is either done automatically or manually.
+
+        *Automatic pre-issuance* means that a certain number of tokens, which
+        were specified during the token creation, will be pre-issued
+        immediately after one of the admins approves the token creation request.
+
+        *Manual pre-issuance* means that a user creates a pre-issuance file
+        via an offline application, uploads it on the platform and waits for
+        an admin approval (more detail in offline application).
+
+        Offline application is an instrument which allows increasing the
+        level of security during the token pre-issuance as well as provides
+        for the diversification of risks.
+
+        In a direct sense, an offline application is a separate software you
+        download to your device to perform operations related to the token
+        pre-issuance. It is available for both users and admins.
+
+        Using an offline application, token pre-issuance can be split into
+        two stages both performed by different parties: one uses an offline
+        application to generate the pre-issuance file and sign it with their
+        keys, another uploads this file to the platform so that actual tokens
+        are pre-issued. In this way, the risk of unauthorized token issuance
+        on the platform is diversified due to the correct allocation of duties.
+
+        Offline application includes the following functionality:
+        - Pre-issue tokens
+        - Change asset issuer
+        - Generate a new key pair
+
+        *Pre-issue tokens.* This process means that a user/admin creates a
+        pre-issuance file, where they specify the pre-issuance details
+        (which token, how much to pre-issue). This file contains a transaction
+        for pre-issuance, which, before being sent, has to be signed by the
+        creator of the file and also by another party that uploads this file
+        to the platform (these actually could be one person, but to increase
+        the security and diversify the risks, it is recommended to allocate
+        the pre-issuance process into two stages).
+
+        *Change asset issuer.* One example when this might be needed is when
+        one of the parties responsible for pre-issuance had been fired from
+        your organization, and you have to make sure that their key can no
+        longer be used for signing the transaction for pre-issuance.
+
+        *Generate a new key pair.* For higher security, it is assumed that
+        the keys that will be later used for the tokens pre-issuance are
+        generated in an offline application. This is done to have higher
+        confidence that they haven’t been exposed by hackers during the
+        generation.
+
+        Offline issuance application, which allows you to securely create new `preissuanceAssetSigner` and pre authorize tokens to be issued, is available here:
+          * [Windows](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/TokenD+pre-issuance+tool-win32-x64.zip);
+          * [macOS](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/TokenD+pre-issuance+tool-darwin-x64.zip);
+          * [Source Code](https://github.com/tokend/offline-issuance).
+
+        ### Issuance
+        At this stage, tokens are put into circulation. This process can be
+        performed either by direct issuance (manually or through PSIM) or
+        through crowdinvesting.
+
+        Direct issuance presumes the manual transfer of tokens to user balances.
+
+        Crowdinvesting campaign can be created by any user with
+        corresponding permission and should be approved by an admin (only
+        the token creator is able to put their token up for sale on a
+        campaign; for more details, see crowdinvesting campaigns).
+
+        Guide on integration with external fiat system is available [here](#operation/fiat_deposit).
+
+        ### Transferring
+        Unlike traditional order execution model—where users send
+        requests to the main server to transfer funds—TokenD supports
+        direct transfers between users. In particular, all transactions are
+        initiated by the users themselves, through cryptographic keys.
+
+        *Note: for a token to be transferred, both the sender and receiver
+        need to have corresponding permissions. Otherwise, the system will
+        return error, and the transaction won’t be submitted.*
+
+        The FBA consensus implemented in TokenD allows achieving full finality
+        of transactions. This means that a transaction is irreversible: once
+        it has taken place on a blockchain (i.e., was accepted by validators),
+        it cannot later be canceled.
+
+        ### Trade
+        TokenD supports an internal exchange module that allows users to
+        exchange tokens issued on the platform without the need for integrating
+        with external exchange services.
+
+        *Note: which of assets can be traded on the exchange is defined by
+        the platform admins. For this, an admin should create an asset pair
+        and specify it as tradable.*
+
+        ### Redemption
+        Token redemption is the process of taking the corresponding amount of
+        tokens out of circulation. One example of token redemption is during
+        the withdraw process. Guide for withdrawal process in TokenD system integrated with Bank is available [here](#operation/fiat_withdrawal)
+
+
+      operationId: token_lifecycle
+  /Crowdinvesting_campaigns:
+    get:
+      summary: Crowdinvesting Campaigns
+      tags:
+        - Tokens
+      description: |
+
+        TokenD comes with a crowdinvesting marketplace solution that is
+        implemented through smart contracts, which are performed directly on
+        a blockchain. This allows for the following benefits:
+        - Investors money are locked up by a smart contract, meaning that the sale creator is technically incapable of stealing investors’ money.
+        - Investors can re-invest their funds into another sale or simply cancel their investment in real time.
+        - In case a sale didn’t reach its softcap, the campaign is considered failed, and all funds are automatically returned to all the investors.
+        - In case a sale is successful (softcap and end time or hardcap reached), the required number of tokens which have been put up for sale are distributed among all investors automatically.
+
+        ### Requirements for users to start their own campaign
+        To start their own crowdinvesting campaign, a user should:
+        - have appropriate permission
+        - create and pre-issue a token that will be put up for sale
+        - create a crowdinvesting campaign request
+        - have this request approved by an admin with the corresponding right
+
+      operationId: crowdinvesting_campaigns
+  /Fees:
+    get:
+      summary: Fees
+      tags:
+        - Tokens
+      description: |
+
+        TokenD is provided with a flexible and feature-rich set of tools
+        for fees management, which allows creating custom fees imposition
+        rules by choosing and combining the following parameters and modes:
+        - Account (type of account, any specific account, group of
+        accounts, or all);
+        - Asset (this is related to any asset on the platform, whether
+        it is issued by an admin or user);
+        - Operation type (withdrawal, invest, issuance, payment
+        (outgoing, incoming), and order match).
+
+        Also, it is possible to choose whether a fee is flat or percentage
+        and define the range in which the imposition of particular
+        fee-charging scenarios takes place. For example, you can specify
+        that USD withdrawals in the range between $0 and $100 are imposed
+        with a flat fee of $0.5, and above $100, a percentage fee of 2% is
+        imposed.
+
+      operationId: fees
+  /4.4.0:
+    get:
+      summary: 4.4.0
+      tags:
+        - Release Notes
+      description: |
+        ## Summary
+        TokenD 4.4 release is focused on adding redemption functionality.
+
+        ## Redemption
+        There are several circumstances in which an Investor is forced to transfer their assets to the another person after a specific event is triggered.
+
+        Some of these 'trigger events' can include:
+        - Death of the shareholder
+        - Last will and testament execution
+        - Cessation of employment
+        - Mental or physical incapacity of the shareholder
+        - Divorce
+        - etc.
+
+        For this redemption reviewable request was added. The asset owner can create a request for transferring funds of some holder to another person and add some documents or other details to this request. Admin will be able to review this request and approve it reject. Until review funds are locked, after review depends on result funds will be transferred or returned to holder.
+
+        ## Version upgrades
+        - [js-sdk] - 1.12.0
+        - [core] - 3.6.3
+        - [horizon] - 3.7.1
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.10.2/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.10.1/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.10.2/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+        [offline-issuance-changelog]: https://github.com/tokend/offline-issuance/blob/1.3.2/CHANGELOG.md
+        [ios-client]: https://github.com/tokend/ios-app
+        [android-client]: https://github.com/tokend/android-client
+        [core]: https://github.com/tokend/core
+        [horizon]: https://github.com/tokend/horizon
+  /4.3.0:
+    get:
+      summary: 4.3.0
+      tags:
+        - Release Notes
+      description: |
+        ## Summary
+        TokenD 4.3 release is focused on adding the ability to integrate with ERC20 and Stellar tokens while creating a non-system asset
+
+        ## Bridges for ERC20 and Stellar assets for non-system assets
+        When creating a new non-system asset, the user can now set up a bridge to Ethereum (ERC20) or Stellar network for this asset.
+
+        ![creation Stellar tokens](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.3.0/Create+Erc20+tokens.png)
+        ![creation ERC20 tokens](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.3.0/Create+stellar+tokens.png)
+
+        Once bridges for Stellar and ERC20 assets are configured, platform users will be able to deposit and withdraw these assets.
+
+        ## Settings
+
+        Identity module is now able to store custom [settings](https://docs.tokend.io/identity/#tag/Settings)
+
+        ## Cleaning unverified wallets
+
+        Identity module will now store unverified wallets only for some period of time that can be set in configs:
+
+        ```
+        wallets:
+          cleaner_period: 24h
+        ```
+
+        This will help to protect from blocking an email address from registration on the platform by starting registration process for it.
+
+        ## General improvements
+        - [web-client] have been upgraded to version 1.10.3 [admin-panel] have been upgraded to version 1.10.1
+
+        ## Detailed changelogs
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of the [admin-panel]
+        - [CHANGELOG.md][offline-issuance-changelog] of the [offline-issuance]
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.10.3/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.10.1/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.10.3/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+        [offline-issuance-changelog]: https://github.com/tokend/offline-issuance/blob/1.3.2/CHANGELOG.md
+        [ios-client]: https://github.com/tokend/ios-app
+        [android-client]: https://github.com/tokend/android-client
+  /4.2.0:
+    get:
+      summary: 4.2.0
+      tags:
+        - Release Notes
+      description: |
+        ## Summary
+        TokenD 4.2 release is focused on adding new types of token sale campaings.
+
+        ## New sale type
+        Up until version 4.2 TokenD employed a token sale mechanics where investors' funds were locked the assets were issued to participants' accounts upon the sale completion.
+
+        In the new type of sale assets are issued to the participants' accounts immediately upon investment in a sale.
+
+        ![New sale type](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.2.0/sale_types.png)
+
+        ## General improvements
+        - [web-client] have been upgraded to version 1.10.2 [admin-panel] have been upgraded to version 1.10.1
+
+        ## Detailed changelogs
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of the [admin-panel]
+        - [CHANGELOG.md][offline-issuance-changelog] of the [offline-issuance]
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.10.2/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.10.1/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.10.2/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+        [offline-issuance-changelog]: https://github.com/tokend/offline-issuance/blob/1.3.2/CHANGELOG.md
+        [ios-client]: https://github.com/tokend/ios-app
+        [android-client]: https://github.com/tokend/android-client
+
+  /4.1.0:
+    get:
+      summary: 4.1.0
+      tags:
+        - Release Notes
+      description: |
+        ## Summary
+        TokenD 4.1 release is focused on improving the framework core. We have significantly re-worked our [XDR library](http://docs.tokend.io/xdr/), did some source refactoring and performance improvements.
+
+        ## UI improvements
+
+        - Direct Sales have been been added to the [web-client]
+        ![Atomic swap purchase web](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.1.0/atomic-swap-web-01.png)
+
+
+        ## Detailed changelogs
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of the [admin-panel]
+
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.9.0/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.10.0/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.10.0/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+        [offline-issuance-changelog]: https://github.com/tokend/offline-issuance/blob/1.3.2/CHANGELOG.md
+        [ios-client]: https://github.com/tokend/ios-app
+        [android-client]: https://github.com/tokend/android-client
+  /4.0.0:
+    get:
+      summary: 4.0.0
+      tags:
+        - Release Notes
+      description: |
+        ## Summary
+        TokenD 4.0 release is focused on extending our framework with bridges to the Stellar as well as Ethereum network in the case of ERC20 tokens. We have also added the KYC Recovery flow to the reference implementations of [web-client] and [admin-panel] as well as introduced the Direct sales feature.
+
+        ## Bridges for ERC20 and Stellar assets
+        When creating a new system asset, the platform administrator can now set up a bridge to Ethereum (ERC20) or Stellar network for this asset.
+        ![creation ERC20 and Stellar tokens](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/Create+Erc20+and+stellar+tokens.png)
+
+        Once bridges for Stellar and ERC20 assets are configured by the platform administrator, platform users will be able to deposit and withdraw these assets.
+
+        It is also possible to use TokenD 4.0 for the initial asset issuance and then withdraw those assets to either of the two networks.
+
+
+        ## KYC Recovery
+        We introduced the KYC Recovery feature on the back-end in [TokenD 3.5.0](https://docs.tokend.io/#tag/Release-Notes/paths/~13.5.0/get). In TokenD 4.0, we have removed the account recovery with a seed feature because it was hard to understand for end-users. Instead, we are now using the KYC recovery flow in our reference implementations of [web-client] and [admin-panel].
+
+        If platform users had passed the KYC procedure and then lost access to their account, they can make an account recovery request by re-submitting the KYC data and have their account unlocked upon review by the platform administrator.
+        ![KYC Recovery step1](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/KYC+Recovery+step1.png)
+
+        ![KYC Recovery step2](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/KYC+Recovery+step2.png)
+
+        Platform administrator compares the user's newly submitted KYC data with the existing and based on this, makes a decision to the restore the user account.
+
+        ![reviewing KYC recovery request](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/admin+KYC+recovery+request+2.png)
+
+
+        ## Direct sales
+
+        Direct sales feature allows selling the assets issued on the platform for assets without depositing it to the platform.
+
+        Such assets need to be marked accordingly by the platform administrator on the System assets management screen.
+        ![asset atomic swap details](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/Admin+asset+atomic+swap.png)
+
+        Once this is done, corporate users can now create assets eligible for direct sales.
+        ![Create asset with atomic swap](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/Create+asset+with+atomic+swap.png)
+
+        ![Create atomic swap](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/Create+atomic+swap.png)
+
+        We have added the purchase flow for direct sales to our reference implementation of mobile clients: [android-client] and [ios-client].
+
+        | ![Atomic swap purchase](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/atomic-swap-mobile-01.png)| ![Atomic swap purchase](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/4.0.0/atomic-swap-mobile-02.png)           |
+        | ------------- |-------------|
+
+        In future we may add the purchase flow to the [web-client] as well.
+
+        ## General improvements
+        - [web-client] and [admin-panel] have been upgraded to version 1.10.0
+        - multi-language support have been added to [web-client] and [admin-panel] applications.
+
+        ## Detailed changelogs
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of the [admin-panel]
+        - [CHANGELOG.md][offline-issuance-changelog] of the [offline-issuance]
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.9.0/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.10.0/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.10.0/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+        [offline-issuance-changelog]: https://github.com/tokend/offline-issuance/blob/1.3.2/CHANGELOG.md
+        [ios-client]: https://github.com/tokend/ios-app
+        [android-client]: https://github.com/tokend/android-client
+  /3.6.0:
+    get:
+      summary: 3.6.0
+      tags:
+        - Release Notes
+      description: |
+        ## General
+        TokenD 3.6.0 release is focused on adding blockchain-backed voting functionality to the platform. A reference implementation of voting functionality has been added to [web-client] and [admin-panel].
+
+        The reference implementation allows corporate users to create polls, while platform users who hold a specific asset can participate. The feature models a decision-making process between asset holders and asset issuer.
+
+        ## Web-client 1.9.0
+        ### Polls creation, browse and participation
+        Similar to sales, polls are created by submitting a request to the platform administrator. Once the poll is approved, it becomes available in the Polls section.
+
+        ![create-poll](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.6.0/1-create-poll.png)
+        ![poll-details](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.6.0/2-poll-details.png)
+        ![poll-vote](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.6.0/3-poll-vote.png)
+
+        ### Register of shares and My assets
+        Corporate users can now see the movements of their assets between asset holders in **Register of shares** section. It is now also possible to filter assets by their ownership via **My assets** in **Assets** section.
+
+        ![register-of-shares](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.6.0/7-register-of-shares.png)
+        ![register-of-shares](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.6.0/8-register-of-shares-open.png)
+
+        ## Admin-panel 1.9.0
+        ### Polls review and browse
+        By default, polls are based on the general reviewable requests functionality so platform administrators have to approve a poll before it becomes available to the platform users. Functionality for browsing and approving poll requests have been added to the admin panel.
+
+        ![admin-poll-review](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.6.0/4-admin-poll-review.png)
+        ![admin-poll-overview](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.6.0/5-admin-poll-overview.png)
+        ![admin-poll-voters](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.6.0/6-admin-poll-voters.png)
+
+        ### Offline issuance 1.3.2
+        Package dependencies have been updated to eliminate some security issues caused by outdated packages.
+
+        ## Detailed changelogs
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of the [admin-panel]
+        - [CHANGELOG.md][offline-issuance-changelog] of the [offline-issuance]
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.9.0/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.9.0/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.9.0/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+        [offline-issuance-changelog]: https://github.com/tokend/offline-issuance/blob/1.3.2/CHANGELOG.md
+
+  /3.5.0:
+    get:
+      summary: 3.5.0
+      tags:
+        - Release Notes
+      description: |
+        ## General
+
+        ### KYC Recovery
+
+        The 3.5.0 release introduces a toolset for building the KYC Recovery flow to the TokenD core. Now if platform users forget their password and do not have the recovery seed, they can still regain access to their accounts via the KYC Recovery flow. With this flow implemented, users can send a request to the platform admin, submit their KYC documents to prove the account ownership and have their account unlocked by the platform admin.
+
+        The following documentation allows building your own KYC Recovery flow for your front-end application:
+
+        - Initialize the KYC recovery for [Identity Storage](https://docs.tokend.io/identity/#operation/changeWalletID). Requires [2FA](https://docs.tokend.io/identity/#operation/getWalletFactors) via email.
+        - Create a [reviewable request for the KYC Recovery](https://docs.tokend.io/xdr/#operation/createKYCRecoveryRequestOp)
+
+        A reference implementation for TokenD default [web-client] and [admin-panel] is going to be added in the upcoming releases.
+
+        ### Status message design improvements
+        System-wide status massages design have been improved for more consistency.
+
+        ![new-success](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.5.0/1-status-message-success.png)
+        ![new-zannen](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.5.0/2-status-message-zannen.png)
+
+        ## Web-client 1.8.0
+
+        ### New sale form improvements
+        We added a new "Cap asset" field to allow a user to choose the asset in which he/she can see the investments collected as a result of their crowdinvesting campaign. Under the hood, the balance for the asset which a user marked as "Accept investments in" is created , then the balance is converted according to the exchange rate with the "Cap asset", and the "Cap asset" balance is eventually shown.
+
+        ![cap-asset](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.5.0/5-cap-asset.png)
+
+        ### Fees display improvements
+        Fees area in the "Send assets" form has been reworked for better readability. Fees calculation details are still available by the **Show my account fees** link.
+
+        ![unified-fees](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.5.0/4-unified-fees.png)
+
+        ### Faster and smoother UX
+        Modern skeleton loading templates have been added to the [web-client] to improve application performance and overall user experience.
+
+        ![sales-skeleton-loading](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.5.0/3-sales-skeleton.png)
+
+
+        ## Admin-panel 1.8.0
+        ### Collected fees management
+        **Collected fees management** screen has been added to the **Fees** section of the [admin-panel]. Now platform admins can make withdrawal requests for fees collected from platform users.
+
+        ![collected-fees-page](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.5.0/6-collected-fees.png)
+
+        ### Sale whitelist details
+        **Whitelist** tab has been added to the Sale details screen, meaning that now platform admins can see users that are whitelisted for the sale participation. Also, **Whitelisted** property in the Sale details section indicates whether thea sale requires whitelisting or not.
+
+        ![sale-whitelist](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.5.0/7-sale-whitelist.png)
+        ![whitelisted-row](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.5.0/8-whitelisted-row.png)
+
+
+        ## Detailed changelogs
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of the [admin-panel]
+        - [CHANGELOG.md][js-sdk-changelog] of the [js-sdk]
+
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.8.0/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.8.0/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.8.0/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+
+  /3.4.0:
+    get:
+      summary: 3.4.0
+      tags:
+        - Release Notes
+      description: |
+        ### Web-client 1.7.0
+
+        #### UI improvements
+
+        - Whitelisting functionality has been added to Sales. It allows limiting sale participation only to the invited users. It is possible to invite users who are not yet registered on the platform. In this case, they will asked to pass the registration process having finished which, they will be able to participate in a sale.
+
+
+        _Notes:_
+        1. The sales created before 3.4.0 cannot use whitelisting.
+        2. For this feature, email notifications are expected in the upcoming versions.
+
+        ![1-wl-nvite](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.4.0/1-wl-nvite.png)
+        ![2-wl-invitations-list](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.4.0/2-wl-invitations-list.png)
+
+        - Sale details screen has been supplemented with Investment statistics
+
+        ![9-sale-statistics](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.4.0/9-sale-statistics.png)
+
+        - User account menu has been extended to display up to three balances in base assets.
+
+        ![3-balances](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.4.0/3-balances.png)
+
+        - Pre-issuance Guide Page has been added to the **Upload-pre-issuance** form.
+
+        ![4-pre-issuance-guide](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.4.0/4-pre-issuance-guide.png)
+
+        ### Admin-panel 1.7.0
+
+        #### UI improvements
+
+        - KYC verification queue: feature allowing administrators to review a large number of KYC requests easier and faster.
+
+        ![7-kyc-queu](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.4.0/7-kyc-queu.png)
+
+        - Pre-issuance Guide Page links has been added to **Offline operations** → **Pre-issuance** and **Offline operations** → **Change asset issuer** screens.
+
+        - Limits management form improvements:
+        -- _Remove_ buttons allow removing specific limits type by type.
+        -- _Unlimited_ label has been added.
+        -- _Not set_ now means that the limit value of higher scope will be used.
+        -- _Scope_ selector has been updated.
+
+        ![8-new-limits-managing](https://881e65d1943e42.s3-eu-west-1.amazonaws.com/pu/3.4.0/8-new-limits-managing.png)
+
+
+        #### Other improvements
+        - Sentry error tracking integration has been added to both [web-client] and [admin-panel]
+
+
+        ### Detailed changelogs
+        By following the links below, you may find the other changes:
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of an [admin-panel]
+        - [CHANGELOG.md][js-sdk-changelog] of the [js-sdk]
+        - [offline-issuance] has no updates in the current release
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.7.0/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.7.0/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.7.0/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+
+  /3.3.0:
+    get:
+      summary: 3.3.0
+      tags:
+        - Release Notes
+      description: |
+        ### Improved KYC verification
+
+        The general verification form has obtained a set of new fields such as Country, Date of Birth, Address Details as well as the ability to upload different Identity Documents.
+
+        Because of special regulations for U.S. citizens that affect their ability to invest in security assets, we have added a new flow for U.S. accredited investors and improved our flow for the verification of general users. Now every user who has selected "USA" as their country of residence will be prompted to upload the proof that he/she is an accredited investor. If he/she uploads the proof, the role of their request will be automatically defined as "US Accredited". Otherwise, the role of the request will be "US Verified" and once it is approved, a user will not be able to hold assets of the type "security".
+
+        ![1.2-us-accredited-approved](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.3.0/1.2-us-accredited-approved.png)
+        ![2-us-accredited-admin](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.3.0/2-us-accredited-admin.png)
+
+        ### IdentityMind integration module
+
+        In addition to the internal KYC module, TokenD can be configured to work with third-party verification services. To provide an example of how this could be done, we have developed an [IdentityMind] integration module. We share this source code as a reference implementation, which you can further re-use by adding your IdentityMind credentials and configuring it to your KYC workflow. See [this repository] for details.
+
+        ### Web-client 1.6.0
+
+        - Now it is easier for a user to understand that an account have been blocked.
+
+        ![7-block-banner](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.3.0/7-block-banner.png)
+
+        - Charts have been improved. Now, they better re-render animation and have floating hints.
+        ![9-charts](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.3.0/9-charts.png)
+
+        - All email addresses can be easily copied via the copy button.
+
+        ![8-email-copy-btn](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.3.0/8-email-copy-btn.png)
+
+        ### Admin-panel 1.6.0
+
+        - KYC verification now displays pending tasks such as auto-verification, submitting requests to third-party integrated APIs, etc. Platform administrators could better manage jobs done by TokenD auxiliary modules.
+
+        ![3-tasks](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.3.0/3-tasks.png)
+
+        - Email and Account ID filters have been merged onto one file Requestor, which can now be used to filter for both values.
+        - Email autocompletion have been added to fields which accept email addresses.
+
+        ![5-filters-autocomplete](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.3.0/5-filters-autocomplete.png)
+
+        - Operation details screen have been updated to improve readability.
+
+        ![6-better-op-details](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.3.0/6-better-op-details.png)
+
+        ### Detailed changelogs
+
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of the [admin-panel]
+        - [CHANGELOG.md][js-sdk-changelog] of the [js-sdk]
+
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.6.0/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.6.0/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.6.0/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+        [d3]: https://d3js.org/
+        [IdentityMind]: https://identitymindglobal.com/
+        [this repository]: https://gitlab.com/tokend/identity-autoverifier-svc
+
+        <!--
+        Convention (of a single person, of ME):
+
+        Repo names:
+        [repo/application-names]
+
+        Interactable entities:
+        **Pages names**
+        **Form names**
+        **Drawer names**
+        **Buttons**
+        **Links**
+
+        Code-entity names:
+        `Code-entity names`
+        -->
+
+
+
+
+  /3.2.1:
+    get:
+      summary: 3.2.1
+      tags:
+        - Release Notes
+      description: |
+        ### Sales and Assets naming consistency
+        We have introducted the naming consistency: now all *funds* are called *sales*, and all *tokens* are called
+        *assets*. On the [admin-panel], we combined all the pages related
+        *assets* into a single **Assets** menu item.
+
+        ### User blocking
+        We introduced *Block* to allow admins to block particular users. Under the hood,
+        this is a general *Change role request* operation, and it is being automatically approved. The
+        action forces a user to acquire a *blocked* account role. The role has no
+        actions allowed except for some basic ones such as log in, log out, etc.
+
+        *Note: This is our default configuration of the blocked role. It can be configured in
+        a different way but make sure you really understand what you do.*
+
+        Admins can block a user by pressing the **Block** button on the
+        **User details** screen (**Users** or **KYC requests** page >> **Users list’s**). Blocked users can be unblocked by
+        pressing the **Unblock** button (depending on whether a user is blocked or unblocked, this button changes correspondingly).
+        After unblocking, [admin-panel] restores
+        the previous approved KYC request, so that all the previously approved KYC data is restored.
+
+        ![Block user](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/4-block-user.png)
+        ![Unblock user](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/5-unblock-user.png)
+
+        [Web-client] will show an appropriate account role under the user email in the
+        top-right corner of the page. The blocked user can see the block reason on the
+        **Verification** page, but there will be no KYC data displayed. By default,
+        [web-client] does not hide any functionality for blocked users, but they will get an error if they try any restricted action.
+
+        ![Blocked user](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/6-blocked-user.png)
+
+        ### Web-client
+        #### Idle auto-logout
+        We introduced *Idle auto-logout* to our [web-client] and [admin-panel].
+        Idle auto-logout default behavior
+        - [web-client] - after 15 minutes since the last user action, auto-logout occurs and the message is being displayed;
+        - [admin-panel]-  after 15 minutes since the last admin action, a warning message is being displayed, and in case of further inactivity, auto-logout occurs.
+
+        *Note:* Under the hood, the log out is being performed on the client’s side entirely.
+        There is no server-side functionality supported for this yet, but we are actively researching
+        to find the best approach to this feature.
+        *TokenD does not know users' or admins' keys* because they are stored encrypted
+        with the passwords of users or admins, and these keys cannot be decrypted by anyone else (in this instance, there is no "master-key" that rules over all other system keys).
+
+        ![idle autologout](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/1-idle-autologout.png)
+
+        #### Limit request details
+        Limit request details have been added to the **Limits** screen.
+        *Limit request details* display request details, actual request state and
+        the reject reason in case there is one.
+
+        The request list have been moved above the actual limits for easier accessibility.
+
+        ![limits page](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/2-limits-page.png)
+        ![limits request details](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/3-limits-request-details.png)
+
+        #### Redesigns and error wordings
+        We redesigned the status message: it has brighter colors, some animations and more verbose server-side error outputs.
+
+        ![success msg ](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/7-success-msg.png)
+        ![zannen msg ](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/8-zannen-msg.png)
+        ![succes in action](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/3.2.1/9-succes-in-action.png)
+
+        For the following elements, the redesign work has been done:
+        - Clipboard field designs (**Settings** >> **Security** >> **Account ID**);
+        - Recovery seed screen upon sign up;
+        - Verification status message designs and wording on the **Verification** screen;
+
+        ### Admin-panel
+        #### Menu structure update
+        [offline-issuance]-related operations have been moved to a new menu item, **Offline operations**.
+
+        ### Detailed changelogs
+        - [CHANGELOG.md][web-client-changelog] of the [web-client]
+        - [CHANGELOG.md][admin-panel-changelog] of the [admin-panel]
+        - [CHANGELOG.md][js-sdk-changelog] of the [js-sdk]
+
+
+        [js-sdk]: https://github.com/tokend/new-js-sdk
+        [js-sdk-changelog]: https://github.com/tokend/new-js-sdk/blob/1.5.0/CHANGELOG.md
+        [admin-panel]: https://github.com/tokend/admin-panel
+        [admin-panel-changelog]: https://github.com/tokend/admin-panel/blob/1.5.0/CHANGELOG.md
+        [web-client]: https://github.com/tokend/web-client
+        [web-client-1.4.0]: https://github.com/tokend/web-client/blob/1.4.0/CHANGELOG.md
+        [web-client-changelog]: https://github.com/tokend/web-client/blob/1.5.0/CHANGELOG.md
+        [offline-issuance]: https://github.com/tokend/offline-issuance
+
+
+
+  /3.1.0:
+    get:
+      summary: 3.1.0
+      tags:
+        - Release Notes
+      description: |
+        ### Experimental (do not use in production)
+        - [Voting functionality](https://docs.tokend.io/#operation/manage_poll) has been added to the TokenD core. It is still experimental and incomplete, and it is planned to become fully
+        functional in one of the upcoming releases.
+
+        ### New Feature
+        - [TDV-109] - [Auxiliary Modules] Сoinpayments integration module.
+        - [TDV-171] - [Client] [Admin] Coinpayments UI integration.
+
+          In Admin, when an asset is created, check the Coinpayments checkbox.
+          After this, in Client, Deposit and Withdraw sections will have Coinpayments option available for according assets.
+          By default, TokenD is configured to use a DL Coinpayments account.
+          > If you are using Coinpayments for anything other then LTCT (Litecoin testnet),
+          please re-configure it to your Coinpayments account.
+          To setup your Coinpayments account in TokenD, see the corresponding section in [this doc](https://github.com/tokend/developer-edition/tree/v3.1#coinpayments-integration).
+
+        - [TDV-3] - [Auxiliary Modules] Service for the request signature verification.
+        - [TDV-5] - [Core] Ledger changes filter for transactions.
+        - [TDV-356] - [Android] Asset pairs list screen.
+        - [TDV-362] - [Android] Trade history.
+
+        ### Improvement
+        - [TDV-113] - [Core] Filter issuance requests by a receiver.
+        - [TDV-141] - [Client] [Admin] Add a noscript html tag.
+        - [TDV-152] - [Client] Change the order book order.
+        - [TDV-153] - [Client] Add tickers to update charts.
+        - [TDV-154] - [Client] Outdated account details.
+        - [TDV-155] - [Admin] Remove 'Invest' fee type from admin panel.
+        - [TDV-252] - [Client] Do not hard code quote asset in the sale creation form.
+        - [TDV-293] - [Admin] Add field autocomplete.
+        - [TDV-296] - [Core] Sentry integration for the core.
+        - [TDV-310] - [Client] Make tests fail when unhandled exception was thrown.
+        - [TDV-147] - [Client] [Admin] "Reset user to unverified" button.
+        - [TDV-160] - [Client] Rename fee subtype to something more user friendly.
+        - [TDV-161] - [Admin] Improve limits design.
+        - [TDV-164] - [Admin] Update KYC request after reviewing.
+        - [TDV-166] - [Client] display negative amounts on balance effect viewers.
+        - [TDV-315] - [Client] Make one request able to fetch all account roles instead of fetching it one-by-one (key-value.module.js).
+        -[TDV-355] - [Client] Movements-history module unit tests.
+        - [TDV-389] - [Android] Offers tab to trade screen.
+        - [TDV-392] - [Android] Do not show a scary big number on the fees screen.
+        - [TDV-327] - [Android] api.demo.tokend.io as a default env.
+        - [TDV-329] - [Android] Operation labels in the history.
+        - [TDV-354] - [Android] Update order book design.
+        - [TDV-371] - [Android] Reorganize trade screen.
+        - [TDV-338] - [iOS] Update default env to demo.tokend.io.
+        - [TDV-340] - [iOS] op_manage_asset_pair in the history.
+        - [TDV-341] - [iOS] Labels for operations in the history.
+        - [TDV-342] - [iOS] Update history icons.
+        - [TDV-372] - [iOS] Update purple color.
+        - [TDV-84] - [DevOps] Versioning for the environment configuration.
+
+        ### Bug
+        - [TDV-85] - [DevOps] Can't get a document with the Developer Edition.
+        - [TDV-263] - [Client] [Admin] Long strings break tabs.
+        - [TDV-276] - [Client] History of operations is not visible.
+        - [TDV-278] - [Client] [Admin] Token cannot be issued.
+        - [TDV-279] - [Client] Can’t send tokens by email.
+        - [TDV-303] - [Admin] Error when admin has approved a user.
+        - [TDV-328] - [Admin] Account roles are not loaded after refreshing the limits page.
+        - [TDV-331] - [Android] Handle "manage asset pair" in the history.
+        - [TDV-376] - [Client] Cannot cancel an order.
+        - [TDV-385] - [Client] Fix console errors in movements unit tests.
+        - [TDV-388] - [Android] Sign in with same credentials after the network switch is not working.
+        - [TDV-391] - [Client] Wrong account role to set while creating the change role request.
+        - [TDV-398] - [Client] Fix displaying account role in a passport.
+        - [TDV-149] - [Admin] Restore email filtering on the KYC requests page.
+        - [TDV-290] - [Admin] Error when trying to approve a user.
+        - [TDV-219] - [Client] Resolve simplemade security issue.
+
+
+      operationId: 3.1.0
+  /node:
+    get:
+      summary: Node
+      tags:
+        - Architecture
+      description: |
+        **_Node_** is a key component of the platform. It processes transactions, manages
+        history, and provides an easy to use API to access the blockchain data. It
+        consists of two modules:
+
+        * **[Core](https://docs.tokend.io/xdr)** — a replicated state machine that maintains a local copy of
+        cryptographic ledger and processes transactions against it in consensus with
+        a set of peers. It implements the federated consensus protocol and is
+        responsible for tokens accounting and roles management. Documentation for the
+        API is available [here](https://docs.tokend.io/xdr).
+
+        * **_[Horizon](https://docs.tokend.io/horizon)_** is the client-facing REST API server. It acts as an interface
+        between the core and applications that want to access the network. It allows
+        submitting transactions to the network, checking the status of accounts, and
+        viewing transaction history. Documentation is available [here](https://docs.tokend.io/horizon).
+      operationId: node
+  /identity_service:
+    get:
+      summary: Identity Service (KYC Storage)
+      tags:
+        - Architecture
+      description: |
+        **_[Identity Service](https://docs.tokend.io/identity)_** is a GDPR compliant module which stores data collected
+        during the KYC (know your customer) procedure. To access the data, a user or
+        admin needs to provide the digital signature, which is verified against
+        the most recent state of the ledger. Such an approach provides a high level of
+        security. This module also stores client-side-encrypted private
+        keys of users. This prevents a malicious actor from getting access
+        to the accounts of the system even having a full access to the storage.
+        Documentation for this module is available [here](https://docs.tokend.io/identity).
+      operationId: identity_service
+  /apps:
+    get:
+      summary: Web, iOS, Android wallets
+      tags:
+        - Architecture
+      description: |
+        ![Web Client](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/dashboard.png)
+        **_[Web](https://github.com/tokend/web-client), [iOS](https://github.com/tokend/ios-app), [Android](https://github.com/tokend/android-client) wallets_** are client facing applications that
+        provide a wide range of functionalities: from storage of encrypted private
+        keys on the device, to token transfers, withdrawals, and trading. They
+        interact with the core of the system directly through the Horizon module and
+        signs all transactions and requests locally. Such an approach ensures that
+        users’ private keys are safe even in case of MITM (man in the middle) attacks.
+      operationId: apps
+  /auxiliary:
+    get:
+      summary: Auxiliary Modules
+      tags:
+        - Architecture
+      description: |
+        Auxiliary modules connect blockchain with real world. Different modules are responsible for different
+        processes: external integrations, payment system, exchange, identity verification, etc.
+
+        Modules communicate with nodes via API. Such a separation of accounting by the processes
+        performed allows for easy integration with existing — even legacy-systems.
+        Each module can be configured, replaced, and enhanced according to particular business requirements.
+
+        **_[PSIM]_** (Payment Services Integration Module) is a set of modules that
+        play the role of a bridge between TokenD public
+        blockchains, banks, payment gateways, exchanges. They reflect corresponding
+        operations like deposit, withdrawal and exchange rate changes in another system.
+
+        **_ESIM (External System Integration Module)_** is a set of modules that interconnects TokenD with
+        various external systems. They are responsible for a wide range of functionalities:
+        from transfer notifications to automatization of the user identity verification.
+      operationId: auxiliary
+  /add_custom_notifications:
     get:
       tags:
         - Guides
-      summary: About
+      summary: Add custom email notifications
       description: |
-        Guides will mostly cover the logic of submitting transactions, so here are a few statements about transactions
-        you may want to know before starting to work with TokenD SDK and TokenD API:
-         * Transaction **MAY** contain one or more operations
-         * Transaction **MUST** have a `source` - the ID of the existing account in the TokenD system
-         * Transaction **MUST** be signed with any valid `ed25519` keypair
-         * Preventing transactions from one network to be sent to another is achieved via "Network Passphrase" that
-         should be unique for every TokenD Network and is being set during deployment
+        TokenD already has necessary notifications for email verification and 2FA. But you are free to add any new notifications for any system event.
 
-        Javascript SDK exposes the `ApiCaller` and `Wallet` classes that will simplify the process of crafting/signing the
-        transactions.
+        To set custom notifications, you need:
 
-        Let's assume our user has the TokenD account with ID - `GD2XNPQCN6A6IRWJDADOVAL4YMDPYB6VTQRIXW7MVQAHCNBMO46KBCIC`
-        and one of it's signers has the secret seed - `SBW7DY3ZEYGGWQJG7JOPYXDIQFZYAC4DKIO75VINZXPIWWIQIJDCDCMZ`.
-        *It's important to know* that the seed of the signer and the account ID **MAY NOT** correspond to one key pair -
-        the list of account signers can be changed, while any account ID is permanent.
+        ## 1. Deploy notification sender
 
-        To submit the transaction to the TokenD network, we should create an `ApiCaller` instance and provide it a
-        `Wallet` instance that we want to be used for signing transactions.
+        Set following section in `your_project.env.yaml` file.
 
-        ```javascript
-          import { Wallet, ApiCaller } from '@tokend/js-sdk'
-
-          const wallet = new Wallet(
-            "", // email param, usually be ommited here
-            "SBW7DY3ZEYGGWQJG7JOPYXDIQFZYAC4DKIO75VINZXPIWWIQIJDCDCMZ", // the secret seed of the signer
-            "GD2XNPQCN6A6IRWJDADOVAL4YMDPYB6VTQRIXW7MVQAHCNBMO46KBCIC", // the ID of the account
-          )
-          const api = ApiCaller.getInstance('http://tokend-backend.com')
-          api.useWallet(wallet)
-          api.usePassphrase("Our network passphrase")
+        ```
+        notificationsender:
+          image: tokend/notification-sender-svc:0.1.0
+          signer: S...
+          defaultchannel: 'email' # 'device' | 'email'
+          database:
+            local: true # will create postgres container in cluster
+            # local: false # will use provided postgres_connection_url
+            # url: postgres_connection_url
+            migrationscount: 1 # Do not change this, please
+          mailgun:
+            key: "key-..." # your private mailgun key
+            publickey: "pubkey-..." # your public validation mailgun key
+            domain: "mg.awesome.com"
+            fromname: AwesomeProject
+            fromemail: noreply@awesome.com
+          s3:
+            url: "https://s3.amazonaws.com" # URL to your bucket (mind region)
+            bucket: awesome-bucket # Your bucket name
+            accesskey: ""
+            secretkey: ""
+            region: ""
+            usestaticcredentials: true # Do not change this, please
+          firebase:
+            projectid: ''
+            serviceaccountid: ''
+            # Please, insert here whole content of your firebase access json file
+            accessfile: ''
+            androidpackagename: ''
+          sentry:
+            disabled: true # Will not use sentry
+            # disabled: false
+            # dsn: ...
+          templates:
+            - name: withdraw-success  # will be used to identify template
+              subject: Your withdrawal request has been processed
+              # file with exactly this name must be in your s3 bucket
+              email: withdraw-success.html  # will be used to send in email body
+              push: withdraw-success.json  # will be used to send push notifications
         ```
 
-        Now `api` will automatically sign any transaction and set it's source from the `Wallet` we've provided.
-
-        ```javascript
-          await api.postOperations(op1, op2, op3)
+        Then generate `your_project.k8s.yaml` file using tokend-cli:
         ```
-      operationId: about
+        tokend-cli gen k8s -f your_project.env.yaml -o your_project.k8s.yaml
+        ```
+
+        Upload templates themselves to s3 bucket (their file names must be the same as in config).
+
+        Now you are ready to deploy to your aws kubernetes cluster. Run `kubectl apply -f your_project.k8s.yaml` and you are ready to go!
+
+        ## 2. Create your custom notification templates
+
+        You can use any HTML code. If you want to set some values dynamically, you need to set placeholders for them in your template:
+
+        ```
+        {{ .Name }}
+        ```
+
+        ## 3. Upload templates to Amazon s3 bucket
+
+        You are [free to choose the way](https://docs.aws.amazon.com/en_us/AmazonS3/latest/user-guide/upload-objects.html) you prefer to upload your templates, named as in the config, to the root of the bucket, you set in the config.
+
+        ## 4. Create a service that will listen for system events
+
+        To listen any system change you can use [transactions endpoint](https://docs.tokend.io/horizon/#operation/getTransactions)
+
+        After getting needed update, you can use notification [service API](https://docs.tokend.io/notification-sender/) to send notification.
+  /coinpayments_integration:
+    get:
+      tags:
+        - Guides
+      summary: Integration with Coinpayments
+      description: |
+        With Coinpayments you can enable deposit and withdraw of cryptocurrencies for your TokenD system.
+
+        ### Set up your Coinpayments account
+
+        1. Create an account and complete KYC verification
+        2. Create an API key:
+          - Go to "Account" menu and select "API keys"
+          - Create a key by clicking on "Generate new key" button
+          - Once the key is created click "Edit permissions" button and check all actions
+        3. Go to "Coin Settings" and select coins you want to process in TokenD
+
+        ### Configure Coinpayments integration service
+        1. In `coinpayments` configuration section you must fill `public_key` and `private_key` attributes with the corresponding values of your Coinpayments API key created before
+        2. For each service – `deposit`, `deposit-verify` and `withdraw`, – you must specify `signer` as a secret seed of your TokenD master account and `source` as it's account ID
+
+        > In Developer edition files to edit are `configs/coinpayments-deposit-verify.yaml`, `configs/coinpayments-deposit.yaml` and `configs/coinpayments-withdraw.yaml`
+
+
+        ### Set up assets in TokenD
+        Every coin must be represented as an asset in your system. Follow this guide to create one:
+        1. Sign in to admin panel
+        2. Pick "Assets" section and click "Create asset" button
+        3. Fill in the form:
+          - "Asset code" – must be a cryptocurrency code as it is displayed in Coinpayments, **can't be changed later**
+          - "Maximum assets" – must be `9223372036853` (maximum possible amount)
+          - "Initial preissued amount" – must be `9223372036853` (maximum possible amount)
+          - "Withdrawable" – must be checked to enable withdraw, can be changed later
+          - "Use Coinpayments" in "Advanced" section – must be checked
+          - "External system type" in "Advanced" section - must be `0`
+        4. Click "Create asset" button below the form and confirm your action
+
+        ### How to deposit
+        1. In client app go to "Movements" and select required balance
+          - If there is no balance in the required asset you can create it in "Assets" section
+        3. Click "Deposit" button
+        4. Enter amount of deposit and click "Request the address"
+        5. Send crypto to given address. Once funds are received and confirmed the amoun will be available in your balance in TokenD as well as in Coinpayments
+
+        ### How to withdraw
+        1. In client app go to "Movements" and select required balance
+        2. Click "Withdraw" button
+        3. Fill in amount and address and confirm the action
   /create_account:
     get:
       tags:
@@ -284,6 +1301,74 @@ paths:
           await api.postOperations(operation)
         ```
       operationId: create_account
+  /fiat_deposit:
+    get:
+      tags:
+        - Guides
+      summary: Fiat Deposit
+      description: |
+        Fiat deposit/withdrawals is one of the most important functionalities an asset management system should provide for. In this document, we will review how it works in TokenD.
+
+        > In this guide, we consider an example of integrating with SafeCharge. However, this knowledge can be further used to integrate with any other similar systems and platforms.
+
+        As in any other system,
+        in order to integrate TokenD with external payment systems (e.g., banks, payment gateways, other blockchains, etc.), a "bridge" module needs to be developed. Further in the text, we will appeal to it as PSIM (Payment Services Integration Module).
+
+        ### Requirements
+        Requirements for the Deposit flow:
+        1. Issuer of the token that represents an external asset must have account in the external system. This account will be used to store collateral of the issued tokens. Issuer is able to decide what ratio to maintain between collateral and tokens. In this example, we will stick to the 1:1 ratio.
+        1. Corresponding token in TokenD must be created. A sufficient amount of tokens should be preissued and a valid `preissuanceAssetSigner` should be controlled by a trusted party (token issuer). In this example, USDT is an asset issued in TokenD, and USD is a collateral for this token.
+        1. Admin (or signer of account) must be created, that is able to request issuance of the USDT.
+
+        ### Flow
+        In the deposit flow, the role of PSIM is to monitor the state of an account in the external system as well as to perform the issuance of the corresponding amount of tokens to the corresponding user once a new incoming transfer takes place.
+        ![Deposit Flow](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/TokenD-SafeCharge+Deposit+Flow.svg)
+
+        1. User  is willing to perform the deposit into the TokenD via web or mobile application. It is possible to mark assets created in TokenD as depositable using the details of an asset (details could be any JSON object, so you can pass any additional data if needed). To start the deposit flow, a user sends a request to PSIM.
+          1. PSIM sends a request to the payment system (in our case, SafeCharge). Payment system (further referred to as "PS" or "SafeCharge") generates a unique session ID for the deposit and returns it back to PSIM. PSIM returns it back to the User.
+        1. Using their application, a user sends a request where they specify card details to SafeCharge and receives their unique identifier.
+        1. User passes a unique identifier of the card, amount to deposit and additional details to PSIM.
+          1. PSIM creates a request for the issuance to the TokenD Core. This request contains the amount to be issued, account on which issuance should be performed as well as all the required tasks that have to be processed to have the issuance performed.
+          1. TokenD Core returns a unique identifier of the request.
+          1. PSIM passes all the data to PS. PS performs the transfer of funds from the user’s credit card to the account of the issuer in PS.
+          1. PSIM approves the issuance request of the corresponding amount of tokens to a user. For big amounts, it is recommended to request manual verification by an admin. To do this, PSIM needs to remove tasks that it is supposed to process and add a new one for an admin (tasks to be processed are defined by the developers depending on their needs). After the confirmation that the transfer is legitimate, an admin removes these tasks and tokens are issued to the user account
+          1. User receives confirmation that the deposit is successful.
+
+
+
+
+      operationId: fiat_deposit
+  /fiat_withdrawal:
+    get:
+      tags:
+        - Guides
+      summary: Fiat Withdrawal
+      description: |
+        Withdrawal is the process of exchanging tokens issued in one system to the collateral controlled by another system.
+        To be able to create the `Withdrawal Request`, a user must have a corresponding permission, and an asset must have `AssetPolicy::WITHDRAWABLE` enabled. For more details, check [Create Withdrawal Request Operation](https://docs.tokend.io/xdr/#tag/Withdrawal). In order to integrate TokenD with external payment systems (e.g., banks, payment gateways, other blockchains, etc.), a "bridge" module needs to be developed. Further in the text, we will appeal to it as PSIM (Payment Services Integration Module). Integration with payment systems that provides end-to-end IDs is trivial (integration module is able to specify a unique identifier of the transfer; if another transfer is sent with the same identifier, the request will be rejected). In this guide, we propose a solution for payment systems that does not provide such mechanics.
+
+        ![Fiat Withdrawal](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/TokenD-Bank+Withdrawal+Flow.svg)
+        1. User creates a withdrawal request specifying a token, amount, and destination details (e.g., bank account).
+          <br>  1.1 TokenD Core verifies that a user has corresponding permission, that an asset is withdrawable as well as that a user has a sufficient balance. TokenD Core locks the corresponding amount of tokens and creates a pending withdrawal request with default tasks.
+        2. PSIM gets all pending requests, where pending tasks are equal to 2 or 4.
+        <br><br> [Pending task = 2]
+        3. To mark that it has started the processing withdrawal request, PSIM approves the request and removes task 2 and adds 4.
+          <br>  3.1 PSIM sends a request to the Bank to transfer the corresponding amount of fiat to the bank account specified by a user in details of the withdrawal request
+          <br><br>[Transfer succeeded]
+          <br>  3.2. PSIM removes task 4.
+          <br>  3.3 Core removes the request and redeems all the withdrawn tokens. (Flow is  finished succesfully)
+          <br><br>[Transfer failed due to invalid destination]
+          <br>  3.2 PSIM markes the request as permanently rejected and specifies the reason.
+          <br>  3.3 TokenD Core unlocks the corresponding amount of tokens and removes the request. A user can see the reject reason in the history and is able to create the new one. (flow is finished)
+          <br><br> [Transfer failed due to unknown reason]
+          <br>  3.2 PSIM removes task 4, adds 1, and adds the reason. Admin is able to see the reason why the transfer was failed and resolve it manually. (Flow finished)
+        <br><br>[Pending task = 4]
+        3. Request is in an unknown state. PSIM has crashed before or after the transfer has been sent to the bank. In such a case, it requests help from the admin removing task 4 and adding task 1. (Flow finished)
+
+
+
+
+      operationId: fiat_withdrawal
   /issue_asset:
     get:
       tags:
@@ -369,6 +1454,73 @@ paths:
         ```
 
       operationId: issue_asset
+  /kyc_provider:
+    get:
+      tags:
+        - Guides
+      summary: Integration with RegTech Solutions
+      description: |
+        The Know Your Customer (KYC) solution needed for a specific case varies greatly on a number of factors such as the business requirements, budget, field of implementation, etc.
+
+
+        For this reason, instead of providing a ready-made solution, TokenD offers a toolkit. This toolkit allows configuring your own identification solution as well as integrating with third-party services in case you need to delegate the process and only receive data based on which to configure custom user permissions.
+
+
+        TokenD presumes a separate module which is responsible for storing the KYC (know your customer) data,
+        and it is called Identity Storage. Who has permission to operate with Identity Storage is specified via keys
+         given to the system admins—-to prove their permission, an admin provides the corresponding signature.
+
+
+        In order to integrate TokenD with external RegTech compliance solutions (e.g., IdentityMind, IDnow, etc.), a "bridge" module needs to be developed.
+        Further in the text, we will appeal to it as ESIM (External System Integration Module).
+
+        ### Flow
+        To upgrade their account (i.e., change its type to the one with higher access level), a user has to pass the KYC procedure.
+        > TokenD doesn’t limit you in the number and type of user access levels as well as in what data should be provided and for which access level; it is all customizable.
+
+
+        The flow of how a client upgrades their account to a higher type is as follows:
+        ![KYC Flow](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/KYC.png)
+          1. Client sends the required KYC data to Identity Storage.
+          1. Client sends the request to the platform to change their account type (this request has the KYC data hash value attached which acts as an identifier in Identity Storage).
+          1. A number of pending tasks appear on the platform; fulfilling them is required to have the user KYC request performed. Which tasks appear depends on how a particular case is customized. For example, depending on the information provided, different tasks may appear. If a user is from Europe, then there could be one one task: need for approval by the platform admin. And if a user is from the USA, then there could be two tasks: approval by the platform admin + additional approval by the external service (in this flow, we consider this particular example).
+          1. Next, admin reviews the request:
+            * If an admin rejects the request (e.g., a user hasn’t provided the required data), then a user will have to start the procedure again starting from the first step.
+            * If an admin approves the request, then one of the tasks required to perform the user request is marked is complete.
+          1. ESIM monitors the platform for requests which contain an admin’s approval and a pending task for external service approval.
+          1. If such a request exists, ESIM requests Identity Storage for the KYC data provided by the corresponding user.
+          1. After receiving this data, ESIM sends a request to the exterior KYC service.
+          1. Service processes the request.
+            * Service confirms the request
+              1. Service sends a message to ESIM that the request has been accepted
+              1. ESIM confirms the request on upgrading the user’s account type (i.e., marks the second pending task as complete)
+              1. User account type is changed
+            * Service rejects the request
+              1. Service sends a message to ESIM that the request has been rejected
+              1. ESIM sends a message to the platform that the request has been canceled.
+              1. User account type is not changed, but a user can start the identification processes from step 1.
+
+
+
+
+
+
+      operationId: kyc_provider
+  /kyc_recovery:
+    get:
+      tags:
+        - Guides
+      summary: KYC recovery
+      description: |
+        KYC recovery allows recovering access to the user account even if they lost all keys. KYC recovery consists of two main steps.
+
+        ### Initiate KYC recovery
+
+        A client generates a new key pair, encrypts it, and sends it to [change wallet endpoint](https://docs.tokend.io/identity/#tag/KYC-Recovery-Flow).  The system sends an email with a verification code. After successful email verification, the system saves encrypted keys and sends [InitiateKycRecoveryOperation](https://docs.tokend.io/xdr/#operation/initiateKYCRecoveryOp). Initiate KYC recovery operation drops all existing user keys and adds a new key with a specific signer role. This role doesn't allow the user to access any data or send any ordinary transactions until the user proceeds with the second step.
+
+        ### Finish KYC recovery
+
+        A user sends a create KYC recovery request operation and provides his KYC data. Admin reviews this request and accepts it. After accepting the request, user signer role changes to default so they will be able to perform all actions allowed to their role.
   /create_poll:
     get:
       tags:
@@ -376,27 +1528,28 @@ paths:
       summary: Manage Poll
       operationId: manage_poll
       description: |
-        > Before creating the poll entry, you may want to configure the system to define what type of voters can participate
-        in the poll. For doing so, you can map the `permissionType` of the poll with one or many account rules. The exact
-        value of `permissionType` may be stored either in key-value storage or somewhere in your service.
+        >  <b>This is an experimental API. Experimental APIs may be changed or removed without notice.</b>
 
-        To create poll request, use the `ManagePollBuilder` exposed by SDK:
+        > Before creating the poll entry, you may want to configure the system to define what type of voters can participate
+        in the poll. For doing so, you can map the `permissionType` of the poll with one or many account rules.
+
+        To create poll request, use the `ManageCreatePollRequestBuilder` exposed by SDK:
 
         Create poll request:
         ```javascript
           const SAMPLE_PERMISSION_TYPE = 4
 
-          const operation = base.ManagePollBuilder.createPollCreationRequest({
+          const operation = base.ManageCreatePollRequestBuilder.createPollRequest({
             permissionType: SAMPLE_PERMISSION_TYPE,
             numberOfChoises: 2,
             pollType: base.xdr.PollType.singleChoice().value,
             creatorDetails: {
-              'foo': 'bar'
+              foo: 'bar'
             },
             endTime: 1553427080,
             startTime: 1553254282,
             voteConfirmationRequired: false,
-            resultProviderId: 'GDWYBLSZIXTTBGWRWBAYVFE6ZDL5GBS3ILOCLVXFB3NX4FFJJDGQUKLB',
+            resultProviderID: 'GDWYBLSZIXTTBGWRWBAYVFE6ZDL5GBS3ILOCLVXFB3NX4FFJJDGQUKLB',
             allTasks: 1,
           })
 
@@ -406,11 +1559,11 @@ paths:
         > Detailed description of params is provided via js-doc in sources or in format of [XDR definitions][create-poll-request]
 
         Until approved or permanently rejected, request can be cancelled by it's creator. To cancel the request, use
-        the same `ManagePollBuilder`:
+        the same `ManageCreatePollRequestBuilder`:
 
         ```javascript
-          const operation = base.ManagePollBuilder.cancelPollCreationRequest({
-            requestId: '10',
+          const operation = base.ManageCreatePollRequestBuilder.cancelPollRequest({
+            requestID: '10',
           })
 
           await api.postOperations(operation)
@@ -433,7 +1586,7 @@ paths:
             reason: '',
             reviewDetails: {
               tasksToAdd: 0,
-              tasksToRemove: 1, // depends on our configuration
+              tasksToRemove: 1, // depends on configuration, to fully approve request remove all pending tasks
             },
           })
 
@@ -442,15 +1595,15 @@ paths:
 
         > Detailed description of params is provided via js-doc in sources or in format of [XDR definitions][review-request]
 
-        After following this steps, the poll should be created and ready to accept votes once the `startTime` becomes.
+        After following this steps, the poll should be created and ready to accept votes after `startTime`.
 
-        After passing `endTime` any tries to vote in the poll will be rejected, but the poll still will be in pending state.
-        To make it finished, you need to explicitly finish the poll. To do so, use the same `ManagePollBuilder`:
+        After `endTime` has passed any votes will be rejected,
+        and poll needs to be closed explicitly by providing voting result.
 
-        To make the poll passed, submit the following operation:
+        To resolve poll as passed, submit the following operation:
         ```javascript
           const pollId = 5
-          const operation = base.ManagePollBuilder.finishPoll({
+          const operation = base.ManagePollBuilder.closePoll({
             pollID: pollId,
             result: base.xdr.PollResult.passed().value,
           })
@@ -458,10 +1611,10 @@ paths:
           await api.postOperations(operation)
         ```
 
-        To make the poll failed, submit the following operation:
+        If poll has failed, submit the following operation:
         ```javascript
           const pollId = 5
-          const operation = base.ManagePollBuilder.finishPoll({
+          const operation = base.ManagePollBuilder.closePoll({
             pollID: pollId,
             result: base.xdr.PollResult.failed().value,
           })
@@ -469,12 +1622,118 @@ paths:
           await api.postOperations(operation)
         ```
 
-        > Detailed description of params is provided via js-doc in sources or in format of [XDR definitions][finish-poll]
+        > Detailed description of params is provided via js-doc in sources or in format of [XDR definitions][manage-poll]
+  /create_signer:
+    get:
+      tags:
+        - Guides
+      summary: Manage Signers
+      operationId: manage_signers
+      description: |
+        To submit the transaction to the TokenD network, we should create an ApiCaller instance and provide it a Wallet instance that we want to be used for signing transactions.:
 
-        [create-poll-request]: https://docs.tokend.io/xdr/#operation/createCreatePollRequest
-        [cancel-poll-request]: https://docs.tokend.io/xdr/#operation/cancelCreatePollRequest
-        [review-request]: https://docs.tokend.io/xdr/#operation/reviewRequestOp
-        [finish-poll]: https://docs.tokend.io/xdr/#operation/finishPoll
+        ```javascript
+          import { Wallet, ApiCaller } from '@tokend/js-sdk'
+
+          const wallet = new Wallet(
+            "", // email param, usually be ommited here
+            "SBW7DY3ZEYGGWQJG7JOPYXDIQFZYAC4DKIO75VINZXPIWWIQIJDCDCMZ", // the secret seed of the signer
+            "GD2XNPQCN6A6IRWJDADOVAL4YMDPYB6VTQRIXW7MVQAHCNBMO46KBCIC", // the ID of the account
+          )
+          const api = ApiCaller.getInstance('http://tokend-backend.com')
+          api.useWallet(wallet)
+          api.usePassphrase("Our network passphrase")
+        ```
+        Now `api` will automatically sign any transaction and set it's source from the `Wallet` we've provided.
+
+        ```javascript
+          await api.postOperations(op1, op2, op3)
+        ```
+
+        After that we can create `createSigner` operation:
+
+        ```javascript
+          const operation = base.ManageSignerBuilder.createSigner({
+              weight: 1000,
+              identity: 1,
+              publicKey: 'GDWYBLSZIXTTBGWRWBAYVFE6ZDL5GBS3ILOCLVXFB3NX4FFJJDGQUKLB', // the ID of the account
+              roleID: 1,
+              details: {
+                'foo': 'bar'
+              },
+            })
+
+          await api.postOperations(operation)
+        ```
+
+        > Detailed description of params is provided via js-doc in sources or in format of [XDR definitions][manage-signer]
+
+        You can check whether signer was created or not by getting list of account signers
+
+        ```javascript
+          const accountId = 'GD2XNPQCN6A6IRWJDADOVAL4YMDPYB6VTQRIXW7MVQAHCNBMO46KBCIC'
+          const { data: signers } = await api.getWithSignature(`/v3/accounts/${accountId}/signers`)
+        ```
+
+        > Detailed description of params is provided via js-doc in sources or in format of [horizon definitions][signers]
+
+        By using `checkSignature()`, you can validate signature
+
+        ```javascript
+          const express = require('express')
+          const { ApiCaller } = require("@tokend/js-sdk")
+
+          const app = express()
+          const port = 3000
+
+          const tokenD = ApiCaller.getInstance("http://localhost:8000/_/api/")
+          const accountId = 'GD2XNPQCN6A6IRWJDADOVAL4YMDPYB6VTQRIXW7MVQAHCNBMO46KBCIC'
+
+          const checkSignature = (owner) => (req, res, next) => {
+              let payload = {
+                  data: {
+                      attributes: {
+                          headers: {},
+                      },
+                      relationships: {
+                          signer_of: [
+                              {id: owner},
+                          ]
+                      }
+                  },
+              }
+
+              Object.keys(req.headers).map(function(key) {
+                  payload.data.attributes.headers[key] = req.header(key)
+              })
+
+              payload.data.attributes.headers["(request-target)"] = `${req.method} ${req.path}`.toLowerCase()
+
+              tokenD.post("/integrations/doorman/validate", payload)
+                  .then(_ => next())
+                  .catch(e => {
+                      const response = e.originalError.response
+
+                      if (response.status >= 500) { // TokenD having a bad day
+                          res.sendStatus(500)
+                      }
+
+                      if (response.status === 422) { // our request was invalid in some way
+                          res.sendStatus(500)
+                      }
+
+                      // signature didn't pass validation
+                      res.sendStatus(e.originalError.response.status)
+                  })
+          }
+
+          app.get('/MyAwesomePath', (req, res) => {
+            checkSignature('GB74P7P5QNJFFDZSH4PRVSAJZYPMJQU4D4D355I3OG4WGDWSIN6YGK32')
+            res.sendStatus(200)
+          })
+
+          app.listen(port, () => console.log(`listening on port ${port}`))
+        ```
   /vote_in_poll:
     get:
       tags:
@@ -482,23 +1741,24 @@ paths:
       summary: Vote in poll
       operationId: vote_in_poll
       description: |
-        If the poll is approved and started, accounts can start adding votes for the choices the poll suggests. To manage
+        >  <b>This is an experimental API. Experimental APIs may be changed or removed without notice.</b>
+        If the poll is approved and started, accounts can start casting votes for the choices the poll suggests. To manage
         votes, SDK exposes `ManageVoteBuilder` for building operations.
 
-        To add vote to single-choice poll on choice that is under number `10`:
+        To cast a vote in single-choice poll for the 10th option:
         ```javascript
-          const operation = base.ManageVoteBuilder.createSingleVote({
-            pollId: 5,
+          const operation = base.ManageVoteBuilder.createSingleChoiceVote({
+            pollID: '5',
             choice: 10,
           })
 
           await api.postOperations(operation)
         ```
 
-        To add votes to a multiple-choice poll on choices that is under numbers `10`, `11` and `12`:
+        To cast a vote in multiple-choice poll:
         ```javascript
           const operation = base.ManageVoteBuilder.createMultipleVotes({
-            pollId: 6,
+            pollID: '6',
             choices: [10,11,12],
           })
 
@@ -507,10 +1767,10 @@ paths:
 
         > Detailed description of params is provided via js-doc in sources or in format of [XDR definitions][create-vote]
 
-        Votes can also be removed. To remove votes from the poll (no matter single-choice or multiple-choice the poll is):
+        Votes can also be recalled. Same operation is used for both single and multi-choise polls:
         ```javascript
           const operation = base.ManageVoteBuilder.removeVote({
-            pollId: 5,
+            pollID: '5',
           })
 
           await api.postOperations(operation)
@@ -519,19 +1779,383 @@ paths:
 
         [create-vote]: https://docs.tokend.io/xdr/#operation/createVote
         [remove-vote]: https://docs.tokend.io/xdr/#operation/removeVote
-  /offline_issuance:
+  /why:
     get:
-      summary: Pre Issuance
+      summary: Why we built TokenD?
       tags:
-        - Other
+        - Introduction
       description: |
-        To ensure high level of security TokenD allows token issuers to easily manage amount of tokens available for issuance in the system. During token creation, it is possible to specify `preissuanceAssetSigner`. It is recommended to generate the keypair for `preissuanceAssetSigner` on the offline device. There are only two ways to change this key: by signing the corresponding transaction with current `preissuanceAssetSigner` of the token, or by creating the fork of the network. PreIssuanceRequest created by non admin account requires additional approval from the admin of the system.
-        To be able to perform token issuance of certain amount, `available_for_issuance` must be equal or greater then that amount. There are two ways to make tokens available for issuance:
-        * specify amount available for issuance on token creation via `initialPreissuedAmount`;
-        * authorize amount to be issued via `CreatePreIssuanceRequestOp` operation.
+        * There are no out-of-box operating solutions available.
+        * Average delivery time for MVP using other platforms ~1 year.
+        * 70% of development work is the same for all projects.
+        * Basic features require changes on the blockchain level.
+        * High entry threshold for new developers.
+      operationId: why
+  /differ:
+    get:
+      summary: How TokenD differs from other platforms?
+      tags:
+        - Introduction
+      description: |
+        |Feature Set|R3 Corda|Hyperledger Fabric|Ethereum|TokenD|
+        |:----:|:--------:|:--------:|:-----:|:------:|
+        |Consensus|RAFT|Kafka|pBFT|FBA|
+        |Smart Contracts|✔|✔|✔|✔|
+        |Private Transactions|✔|✔|✔||
+        |External System<br> Integration toolkit||||✔|
+        |Web/iOS/Android Wallet|||✔|✔|
+        |Commercial-scale funds <br> management kit||||✔|
+        |Role-based Access Control||✔||✔|
+        |Vanilla Regulatory<br> compliance framework||||✔|
 
-        Offline issuance application, which allows you to securely create new `preissuanceAssetSigner` and pre authorize tokens to be issued, is available here:
-        * [Windows](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/TokenD+pre-issuance+tool-win32-x64.zip);
-        * [macOS](https://s3-eu-west-1.amazonaws.com/881e65d1943e42/pu/TokenD+pre-issuance+tool-darwin-x64.zip);
-        * [Source Code](https://github.com/tokend/offline-issuance).
-      operationId: offline_issuance
+        #### External System Integration toolkit
+        * Consistent sequence of all operations occurring in the system with a set of changes applied to the ledger.
+        * SDKs, intuitive REST API.
+        * Unique ID tracking for crucial operations.
+        * Reference implementation of external systems integration.
+
+        #### Web/iOS/Android Wallet
+        * Fully featured opensource native web, iOS and Android apps.
+        * Secure on device key storage;
+        * Designed to ease customization;
+        * Native SDKs to build your own implementation;
+
+        #### Commercial-scale funds management kit
+        * Tasks based issuance and withdrawal requests designed for secure integrations with external systems;
+        * Secure offline app for tokens issuance authorization;
+        * On-chain crowdfunding module with several price finding algorithms;
+        * Decentralized exchange;
+
+        #### Role-based Access Control & Multi-signature
+        * Define on-chain user access rights to follow regulations;
+        * Tasks based approach to review critical user’s operations in the system;
+        * Define signers rules to distribute rights among admins of the system to minimize risks of fraud;
+        * Use multi-signature for decentralized decision making.
+
+        #### Vanilla Regulatory compliance framework
+        * Manage deposit, transfer, withdrawal limits to follow regulation and/or secure the system;
+        * Tasks based approach for user roles transition;
+        * GDPR compilate off-chain personal data storage with guaranty of integrity;
+        * Direct user-admin communication to resolve issues.
+      operationId: differ
+
+  /try_the_demo:
+    get:
+      summary: Run your first network
+      tags:
+        - Introduction
+      description: |
+
+        Quick way for running [TokenD](https://tokend.io) local development environment with [Docker](https://www.docker.com). For production deployment use [this guide](https://gitlab.com/tokend/tokend-cli).
+        #### Requirements
+
+        * [Docker 17.06.0+](https://www.docker.com/get-started)
+        * [Compose 3.3+](https://docs.docker.com/compose/install/)
+        * Linux/MacOS, Windows support is experimental and has known issues.
+
+        #### Bootstraping your environment
+
+        ```sh
+        # drop any persistent state to make sure you are working with clean install
+        $ docker-compose down -v && docker-compose pull
+        # spin everything up
+        $ docker-compose up -d
+        # wait while environment initialization is complete
+        $ docker-compose logs -f initscripts
+        ```
+
+        Now you should be able to access web client at [http://localhost:8060](http://localhost:8060) and admin dashboard at [http://localhost:8070](http://localhost:8070) default seed for login is `SAMJKTZVW5UOHCDK5INYJNORF2HRKYI72M5XSZCBYAHQHR34FFR4Z6G4`
+
+        These instructions are just a guideline for what you should generally do. You may modify provided `docker-compose.yml` or configuration files in `configs` directory to accommodate your needs.
+
+        #### Support
+
+        If you need any help with TokenD or would like to suggest a feature, please reach us via https://tokend.atlassian.net/servicedesk/
+
+      operationId: try_the_demo
+  /accounts:
+    get:
+      summary: Accounts
+      tags:
+        - Key Concepts
+      description: |
+        Accounts are the central data structure in TokenD. Each account has:
+        - *Cryptographic keys* (with their weight)
+        - *Permissions* representing which operations can be performed
+
+        ### Key pair
+        All accounts are identified by a public key and, basically, are a piece of data stored on the ledger.
+        All other data on the ledger, such as assets, offers, or KYC data, are associated with accounts.
+
+        The weight of a key determines its level of access for initiating a specific operation.
+        Weight is needed to define the threshold for an operation to be performed.
+
+        ### Permissions
+        To perform operations, for all accounts there is a set of permissions.
+        Permissions are configured by administrators and can be customized for each
+        individual account (this also relates to administrators who should have appropriate
+        permission to configure the permissions of other accounts).
+
+        ### Types of accounts
+        All accounts in TokenD can be split into **two types**: admin and user.
+        *Admins* make decisions on configuring the system and setting business rules as well as verify
+        users and grant them rights (permissions) to perform certain activity on the platform.
+
+        *Users* take advantage of the system functionality by performing
+        operations—which they have permission to perform.
+    operationId: accounts
+  /txs:
+    get:
+      summary: Transactions and Operations
+      tags:
+        - Key Concepts
+      description: |
+        Each operation in the system (e.g., send a payment, manage orders, change account settings, etc.)
+        is represented by a transaction. Moreover, one transaction may contain up to 100 operations.
+        The result of each transaction is the modification of the TokenD ledger state.
+
+        Transactions are atomic, meaning that if there are multiple operations in one transaction,
+        either all operations are performed successfully or none is.
+        Thus, if one operation from the list fails, an entire transaction fails as well.
+
+        Each operation:
+        - Is performed by an account directly, via keys;
+        - Requires permission;
+        - Has a weight threshold which the signer must have to be able to perform it.
+
+        *Keys.* Each operation is signed by keys. Only the keys owner is able to perform
+        operations associated with their account.
+
+        *Permission.* An account should have appropriate permission to perform a particular operation.
+
+        *Threshold.* Weight threshold is the signer’s access level, meaning that in order to perform
+        a particular operation, a signer or group of signers should have the total weight equal
+        or higher than the operation threshold. This is implemented via the multisignature mechanism.
+    operationId: txs
+  /KYC:
+    get:
+      summary: Know Your Customer (KYC)
+      tags:
+        - AML/KYC
+      description: |
+
+        The Know Your Customer (KYC) solution needed for a specific case
+        varies greatly on a number of factors such as the business requirements,
+        budget, field of implementation, etc.
+
+        For this reason, instead of providing a ready-made, out-of-the-box
+        solution, TokenD offers a toolkit for configuring your own as well as
+        for integrating with third-party verification services.
+
+        ### Build your own KYC solution
+        As has been mentioned, TokenD doesn’t limit you in the number and
+        type of user access levels as well as what data should be provided and
+        for what access level. The KYC flow is fully customizable. You
+        configure:
+        - Data a user should provide (e.g., name, home address, health
+        insurance, etc.)
+        - How it is being checked (this can depend on the data provided: by
+        an admin of the platform; by multiple admins; by an admin + third-party
+        verification service; etc.)
+        - What is the access level a user will be upgraded to (different access
+        levels vary according to permissions presumed in them; on each
+        operation, there is separate permission—thus the number of access
+        levels can be immense)
+
+        *Note: the user access level can also be dropped at any time; to do
+        this, an admin must be granted with a corresponding right.*
+
+        ### Integrate with third-party verification services
+        An outsourcing solution is beneficial when you need to delegate
+        the hardships of verifying the user KYC data.
+
+        For example, companies that build online trading platforms in the
+        USA are strictly obliged to limit the investment choices of
+        unaccredited investors. In such a case, the identification of
+        whether an individual is accredited or not can be outsourced to
+        corresponding services (e.g., IdentityMind)
+
+        *Note: the development of external integration module and user access
+        levels configuration takes approximately two weeks.*
+
+        ### Multilevel identification
+        It is possible to define how specifically a user will be verified
+        depending on the data provided, and thus implement multilevel,
+        several-step identification. This is most beneficial in terms of
+        various regulatory requirements.
+
+        *For example. All users are verified manually by the platform admins,
+        except for those from the USA, who need to prove they are accredited.
+        In such a case, you can configure that if a user has filled the*
+        ***country*** *box as “USA”, he/she will be automatically redirected
+        (via API) to an outsourcing service that will proceed with
+        identification.*
+
+        ### Out-of-the-box solutions
+        #### United States accreditation
+        TokenD team has already implemented some basic KYC flows. It is possible
+        for user to be verified as a General, U.S. verified and U.S. accredited investor.
+        Web application will authomatically define the verification flow depending on
+        user's country and requested role will be visible for application reviewer.
+        Thus, US residents, that are not able to prove their accreditation status won't have
+        the ability to hold and invest to security assets.
+        #### Automatic verification
+        TokenD provides an open-source reference implemenation of automatic verification
+        service, that is integrated with IdentityMind sandbox environment. When connected
+        to the real Identity Mind environment, such service will automatically handle
+        most KYC applications without any need of involving human resources.
+
+        The implementation of the service is available on [Gitlab](https://gitlab.com/tokend/identity-autoverifier-svc)
+      operationId: kyc
+  /Limits:
+    get:
+      summary: Limits
+      tags:
+        - AML/KYC
+      description: |
+
+        TokenD limits management is not only about enabling/disabling
+        particular actions for particular users. Rather, it allows admins
+        to define limit ranges within which users perform activity on the
+        platform.
+
+        Limits can be imposed on:
+        - Accounts
+        - Assets
+        - Time bounds (daily, weekly, monthly limits).
+
+        ### Account
+        Operation limits can be imposed on a type of account (e.g.,
+        unverified; verified; all users under 21 years old; all users
+        without insurance documents; etc.) or a specific account.
+
+        ### Asset
+        Operation limits can be imposed on a particular asset type (e.g., to
+        avoid speculation, one account cannot buy more than 5 tickets on
+        one concert/show/etc.).
+
+        ### Time bounds
+        Operation limits can be imposed on specific time bounds (e.g.,
+        users from other than gold miner countries will not be able to
+        buy more than 100g per day).
+
+      operationId: limits
+  /registration:
+    get:
+      summary: Registration
+      tags:
+        - Keys Management
+      description: |
+        For a user, the registration in TokenD is not much different from that on any regular website,
+        social media (e.g., Facebook), online shopping services (e.g., Amazon), etc.
+
+        ### User flow
+        1. Enter an email and password
+        1. Confirm the registration via their email
+        1. Receive the recovery seed and save it in a safe place (the recovery seed will be needed
+        to restore the keys in case a user has forgotten or lost their password).
+
+        ### Under the hood
+        While a user is only asked to perform simple and common actions, the under-the-hood of registration
+        is entirely different.
+        In simple terms, the user password is used to encrypt the user’s wallet before sending
+        it to the server as well as to derive data by which a user will later authenticate to later
+        obtain their encrypted wallet.
+
+        Since the function used for derivation is one-way, neither the server nor the
+        man-in-the-middle can use authentication data to restore the user password.
+      operationId: registration
+  /authorization:
+    get:
+      summary: Authorization
+      tags:
+        - Keys Management
+      description: |
+        As in the case of registration, the user authorization flow is the same as in any regular system:
+        enter an email and password. However, as has already been mentioned, user passwords never touch
+        the servers neither during the authorization nor ever else.
+
+        To make this happen, the under-the-hood of authorization is entirely different
+        from traditional systems.
+
+        ### Authentication
+
+        Firstly, a user sends their email address to the server, which, in turn, verifies the
+        presence of such an address in its database. If such exists, the identification process can
+        be considered finished.
+
+        After identification, a user should prove their authenticity. For this, he/she enters their
+        password into a device (locally), after which an authentication data is derived and then sent
+        to the server. The server, in turn, verifies the received data, and if it matches,
+        the authentication process can be considered finished (for higher security, an additional
+        confirmation via email can be used).
+
+        ### Receiving an encrypted wallet
+        After the successful authentication, the server sends an encrypted wallet to a user,
+          who then decrypts it using their encryption key (generated through entering the password,
+          locally in the device) and gains access to their keys. Authorization is finished, and a user
+          is ready to use their keys for signing further operations that they would like to perform in the
+          system.
+
+          *Note: if an attacker manages to obtain the user’s authentication data (for example, an attacker
+          has bribed an admin of the system who has access to the database), this knowledge wouldn’t
+          present any value because all that an attacker would receive is just an encrypted wallet,
+          which only the user knows how to decrypt.*
+      operationId: authorization
+  /recovery:
+    get:
+      summary: Password Change/Recovery
+      tags:
+        - Keys Management
+      description: |
+        The user password is the most crucial data which is needed to derive (generate) an encryption key.
+        Losing or forgetting a password leaves the user without access to their keys. In such a case, there
+        is a password change procedure.
+
+        ### User flow
+        Since the server never knows the user’s password, the password recovery procedure is radically
+        different from traditional systems, yet possible. A user needs to enter the recovery seed
+        (which had been previously shown to him/her during the registration) and a new password.
+        The password will be recovered and new seed created (do not forget to save the new seed!).
+
+        *Note: recovery seed is your cornerstone; if the password and recovery seed are lost, then the
+        access to an account (as well as to all funds associated with this account) will be lost as well.
+        No one except the user knows this seed, and it is shown ONLY ONCE, during the registration.*
+
+        ### Under the hood
+        After a user has entered the seed into their application, a new wallet for him/her is created.
+        This means that:
+        - Old keys are deleted (with their weight and permissions)
+        - New key is generated (i.e., wallet creation)
+        - Permissions and weight are set for the new key
+        - Newly created wallet is encrypted using the new user password
+      operationId: recovery
+  /reviewable_request:
+    get:
+      tags:
+        - Guides
+      summary: Reviewable requests
+      description: |
+        Reviewable requests are operations that can be reviewed before
+        changing ledger state. This requests can be reviewed by admin
+        or any system module.
+
+        Reviewing process is managed by tasks. While reviewing or creating
+        requests you can set or remove tasks [using fields](https://docs.tokend.io/xdr/#operation/reviewRequestOp)
+        `TasksToAdd` and `TasksToRemove`. After processing review admin
+        or module should remove this task If there are no pending tasks
+        the request will be accepted.
+
+        Tasks are `uint32` values that can be customized differently
+        for specific system. Task must be `2^n`. TokenD already has
+        some tasks defined for its integrations.
+
+        ### KYC tasks
+
+        * `default = 1` - request needs review by admin.
+        * `submit_auto_verification = 1024` - request needs review
+        by IDMind module.
+        * `complete_auto_verification = 2048` - request waits for IDMind
+        verification completion.
+        * `manual_review_required = 4096` - IDMind failed to check KYC
+        and it needs review by admin.

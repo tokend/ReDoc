@@ -4,9 +4,10 @@ import * as React from 'react';
 
 import { ShelfIcon } from '../../common-elements/shelfs';
 import { IMenuItem, OperationModel } from '../../services';
-import { shortenHTTPVerb } from '../../utils/openapi';
+import { shortenHTTPVerb, shortenItemType } from '../../utils/openapi';
+import { OptionsContext } from '../OptionsProvider';
 import { MenuItems } from './MenuItems';
-import { MenuItemLabel, MenuItemLi, MenuItemTitle, OperationBadge } from './styled.elements';
+import { ItemTypeBadge, MenuItemLabel, MenuItemLi, MenuItemTitle, OperationBadge } from './styled.elements';
 
 export interface MenuItemProps {
   item: IMenuItem;
@@ -87,6 +88,7 @@ export class OperationMenuItemContent extends React.Component<OperationMenuItemC
 
   render() {
     const { item } = this.props;
+    const padding = !item.itemType ? "20px" : '0px'
     return (
       <MenuItemLabel
         depth={item.depth}
@@ -94,8 +96,14 @@ export class OperationMenuItemContent extends React.Component<OperationMenuItemC
         deprecated={item.deprecated}
         ref={this.ref}
       >
-        <OperationBadge type={item.httpVerb}>{shortenHTTPVerb(item.httpVerb)}</OperationBadge>
-        <MenuItemTitle width="calc(100% - 38px)">
+        <OptionsContext.Consumer>
+          {
+            options => options.itemTypesInsteadOfOperations
+              ? <ItemTypeBadge type={item.itemType}>{shortenItemType(item.itemType)}</ItemTypeBadge>
+              : <OperationBadge type={item.httpVerb}>{shortenHTTPVerb(item.httpVerb)}</OperationBadge>
+          }
+        </OptionsContext.Consumer>
+        <MenuItemTitle width="calc(100% - 38px)" padding={padding}>
           {item.name}
           {this.props.children}
         </MenuItemTitle>

@@ -76,6 +76,7 @@ export class OperationModel implements IMenuItem {
   path: string;
   servers: OpenAPIServer[];
   security: SecurityRequirementModel[];
+  itemType: string;
   extensions: Dict<any>;
 
   constructor(
@@ -103,6 +104,7 @@ export class OperationModel implements IMenuItem {
     this.deprecated = !!operationSpec.deprecated;
     this.operationId = operationSpec.operationId;
     this.path = operationSpec.pathName;
+    this.itemType = operationSpec['x-item-type'];
 
     const pathInfo = parser.byRef<OpenAPIPath>(
       JsonPointer.compile(['paths', operationSpec.pathName]),
